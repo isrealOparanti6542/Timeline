@@ -1,0 +1,3929 @@
+@font-face {
+    font-family: AnoRegular;
+    src: url('../fonts/Ano/AnoRegular-Regular.otf');
+}
+@font-face {
+    font-family: ATApocItalic;
+    src: url('../fonts/ATApoc/AT\ Apoc\ Revelations\ Italic.ttf');
+}
+@font-face {
+    font-family: ATApoc;
+    src: url('../fonts/ATApoc/AT_Apoc.ttf');
+}
+@font-face {
+    font-family: SuisseIntl;
+    src: url('../fonts/Suisse/SuisseIntl-Light.otf');
+}
+
+/* General */
+*{
+    font-family: 'AnoRegular', sans-serif;
+    color: #ffffff;
+}
+.post, .page{
+    margin: 0 !important;
+}
+*::selection{
+    background-color: #00FC00;
+}
+a{
+    color: #ffffff !important;
+}
+a:hover{
+    color: #ffffff;
+    text-decoration: none;
+}
+body{
+    font-size: 12px;
+    background-color: #000000;
+    color: #ffffff;
+}
+p.medium{
+    font-size: 18px;
+}
+p.thin, p.thin a{
+    font-family: 'AnoRegular', sans-serif;
+}
+.border-top-white{
+    border-top: 2px solid #ffffff;
+}
+.border-green{
+    border: 1px solid #00FC00;
+}
+.bg-green{
+    background-color: #00FC00;
+}
+.bg-black{
+    background-color: #000000;
+}
+.bg-white{
+    background-color: #ffffff;
+}
+.cl-green{
+    color: #00FC00;
+}
+.btn-white{
+    background-color: #ffffff;
+}
+.c-white{
+    color: #ffffff;
+}
+.c-black{
+    color: #000000;
+}
+.b-left{
+    border-left: 2.3px solid #00FC00;
+}
+.b-bottom{
+    border-bottom: 2.3px solid #00FC00;
+}
+.b-top{
+    border-top: 2.3px solid #00FC00;
+}
+.title-section{
+    text-transform: uppercase;
+}
+.entry-content{
+    margin: 0 !important;
+}
+iframe{
+    max-height: 75vh;
+    margin: auto;
+    max-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title-section{
+    cursor: pointer;
+}
+
+/* HEADER */
+header{
+    background-color: #000000;
+}
+.full_container{
+    background-color: #000000;
+}
+nav{
+    height: 10vh;
+}
+nav div.icon a{
+    display: flex;
+    float: right;
+    height: 100%;
+}
+nav div.icon a i{
+    display: flex;
+    margin: auto;
+    font-size: 20px;
+    padding-right: 2vh;
+}
+nav .menu-icon{
+    height: 100% !important;
+	font-size:35px;
+}
+nav div.logo{
+    z-index: 2;
+}
+nav div.logo img{
+    height: 9vh;
+    padding-left: 0 !important;
+    padding: 4%;
+}
+.band-menu{
+    left: 0;
+    position: absolute;
+    z-index: 2;
+    /* overflow-y: scroll; */
+    -webkit-overflow-scrolling: touch;
+    height: 90vh;
+    background-color: #00FC00;
+    color: #ffffff;
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+.space-between {
+    justify-content: space-between; 
+}
+.text-menu{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    letter-spacing: 3px;
+}
+.text-menu-donate{
+    letter-spacing: 3px;
+    right: 10%;
+    position: absolute;
+    z-index: 9999;
+}
+.text-menu-donate .flex-item{
+    font-size: 1.7vw;
+}
+.flex-item:hover{
+    color: #ffffff;
+    text-decoration: none;
+}
+.flex-item {
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    font-family: 'SuisseIntl';
+}
+span.other-type{
+    position: absolute;
+    font-size: 3.7vw;
+    margin-bottom: 1.1%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+}
+span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px black;
+    text-decoration: none;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+}
+  
+@keyframes slidein {
+    0%   {height: 0;}
+    100%  {height: 93vh;}
+}
+.reds{
+    z-index: 2;
+    left: 36%;
+    position: absolute;
+    width: 13%;
+}
+.icon{
+    left: 23%;
+}
+.cont-rrss{
+    float: right;
+    display: flex;
+    /* margin-top: 3vh; */
+    display: none;
+    width: 25%;
+}
+.cont-rrss img.rrss{
+    height: 3vh;
+    width: auto;
+    padding: 0% 15%;
+    object-fit: contain;
+}
+@media (min-width: 768px) and (max-width: 991px){
+    .icon{
+        left: 0;
+    }
+}
+@media (max-width: 768px){
+    .icon{
+        left: 0;
+    }
+    .text-menu-donate {
+        letter-spacing: 3px;
+        right: 26%;
+        position: absolute;
+        z-index: 9999;
+    }
+    .text-menu-donate .flex-item{
+        font-size: 2.7vw;
+    }
+}
+
+/* PREVIEW */
+.bg-full-container.preview {
+    position: relative;
+    background-color: transparent;
+    height: 100vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow-y: hidden;
+}
+.bg-full-container.preview h1{
+    z-index: 99999;
+    width: 100%;
+    position: absolute;
+    margin: auto;
+    display: flex;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    cursor: url(../icons/cursor_1.png), pointer;
+}
+.bg-full-container.preview .overlay{
+    width: 100%;
+    overflow-y: hidden;
+}
+.bg-full-container.preview img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: cover;
+}
+
+/* HOME*/
+.bg-full-container.home{
+    height: 100vh;
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.home .resumen{
+    padding: 0 !important;
+}
+.home .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 80vh;
+}
+.home .resumen .detail{
+    width: 100%;
+    float: left;
+    margin: 0;
+    height: 16vh;
+    padding-bottom: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* text-transform: uppercase; */
+}
+.home .resumen .detail .name, .home .resumen .detail .date{
+    text-transform: uppercase;
+}
+.home .resumen .content p{
+    width: 100%;
+    float: left;
+    margin: 0;
+    line-height: normal;
+}
+.home .description-home{
+    font-size: 1.7vw;
+    font-family: 'AnoRegular';
+}
+.home .resumen .content p.name, .home .resumen .content p.date{
+    font-size: 1.7vw;
+    font-family: 'AnoRegular';
+}
+.home .resumen .content p.artist{
+    font-size: 1.3vw;
+    letter-spacing: 0.1rem;
+    font-family: 'ATApocItalic';
+}
+.home .resumen-content-modal{
+    cursor: pointer;
+}
+@media (min-width: 992px){
+    .modal-lg, .modal-xl{
+        max-width: 80%;
+    }
+    .modal-lg img, .modal-xl img{
+        min-height: 90vh;
+        max-height: 90vh;
+        object-fit: cover;
+    }
+}
+.home .resumen .next a, .resumen .next .col-6, .resumen .next .col-12{
+    height: 100%;
+    display: flex;
+    width: 100%;
+}
+.home .resumen img{
+    width: 10%;
+    height: auto;
+    margin-left: 0;
+    margin-top: 0;
+    max-height: 40vh;
+    float: left;
+    margin-bottom: 2%;
+    max-width: 62vh;
+}
+.home .resumen .next{
+    height: 10vh;
+    bottom: 0;
+    position: absolute;
+}
+.home .carousel{
+    width: 100%;
+}
+ .home .carousel-control-prev{
+    left: 30%;
+}
+.home .carousel-control-next{
+    right: 30%;
+} 
+.home .resumen .next .text-left a i {
+    display: flex;
+    margin: auto;
+    margin-left: 0;
+    font-size: 20px;
+}
+.home .resumen .next .text-right a i {
+    display: flex;
+    margin: auto;
+    margin-right: 0;
+    font-size: 20px;
+}
+
+@media (min-width: 1700px) {
+    .center span{
+        font-size: 11pt;
+    }
+    .big{
+        font-size: 12pt;
+    }
+}
+.home.detail-artist .resumen img {
+    margin: auto;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+    position: relative;
+}
+
+.home.detail-artist .resumen .next{
+    width: 100% !important;
+}
+.home.detail-artist.mobile .resumen .content p{
+    width: 90%;
+}
+.home.detail-artist.mobile .resumen .content{
+    height: calc(var(--vh, 1vh) * 80);
+}
+
+/* PAGE ARCHIVE */
+.page-archive.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.page-archive .column-artists{
+    padding: 0 !important;
+    overflow-y: scroll;
+}
+.page-archive .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.page-archive .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.page-archive .column-artists .title-section span.other-type{
+    position: absolute;
+    line-height: 64px;
+    font-size: 3.7vw;
+    /* margin-bottom: 2.5%; */
+}
+.page-archive .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+.page-archive .column-artists .title-section p{
+    margin: 0;
+}
+.page-archive .column-artists .list-artists{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.page-archive .column-artists .list-artists .artists{
+    font-size: 1.5vw;
+    text-transform: uppercase;
+    letter-spacing: 1.7pt;
+}
+.page-archive .column-artists .list-artists .artists-hover{
+    font-family: 'ATApocItalic';
+    letter-spacing: 0.75pt;
+}
+.page-archive .resumen img{
+    width: auto;
+    height: auto;
+    max-height: 51vh;
+    /* max-width: 51vh; */
+    max-width: 40vh;
+    display: flex;
+}
+.page-archive .resumen{
+    padding: 0 !important;
+}
+.page-archive .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* PAGE ARCHIVE YEAR */
+.page-archive-year.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.page-archive-year .column-artists{
+    padding: 0 !important;
+    overflow-y: scroll;
+}
+.page-archive-year .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.page-archive-year .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.page-archive-year .column-artists .title-section span.other-type{
+    position: absolute;
+    line-height: 64px;
+    font-size: 3.7vw;
+    /* margin-bottom: 2.5%; */
+}
+.page-archive-year .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+.page-archive-year .column-artists .title-section p{
+    margin: 0;
+}
+.page-archive-year .column-artists .list-artists{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.page-archive-year .column-artists .list-artists .artists{
+    font-size: 1.5vw;
+    text-transform: uppercase;
+    letter-spacing: 1.7pt;
+}
+.page-archive-year .column-artists .list-artists .artists-hover{
+    font-family: 'ATApocItalic';
+    letter-spacing: 0.75pt;
+}
+.page-archive-year .resumen img{
+    width: auto;
+    height: auto;
+    max-height: 51vh;
+    /* max-width: 51vh; */
+    max-width: 40vh;
+    display: flex;
+}
+.page-archive-year .resumen{
+    padding: 0 !important;
+}
+.page-archive-year .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ARCHIVE*/
+.detail-archive.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.detail-archive .resumen{
+    padding: 0 !important;
+}
+.detail-archive .resumen-content-modal{
+    cursor: pointer;
+}
+@media (min-width: 992px){
+    .modal-lg, .modal-xl{
+        max-width: 80%;
+    }
+    .modal-lg img, .modal-xl img{
+        min-height: 90vh;
+        max-height: 90vh;
+        object-fit: cover;
+    }
+}
+.detail-archive .resumen .next a, .resumen .next .col-10, .resumen .next .col-12{
+    height: 100%;
+    display: flex;
+    width: 100%;
+}
+.detail-archive .resumen .next .col-10 p{
+    display: flex;
+    margin: auto;
+    font-size: 1.3vw;
+letter-spacing: 0.1rem;
+    font-family: 'ATApoc';
+}
+.detail-archive .resumen .next .col-12 p{
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.7vw;
+}
+.detail-archive .resumen .next .text-left a i{
+    display: flex;
+    margin: auto;
+    margin-left: 0;
+    font-size: 20px;
+}
+.detail-archive .resumen .next .text-right a i{
+    display: flex;
+    margin: auto;
+    margin-right: 0;
+    font-size: 20px;
+}
+.detail-archive .resumen img{
+    max-height: 75vh;
+    margin: auto;
+    width: auto;
+    height: auto;
+    max-height: 75vh;
+    max-width: 76vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.detail-archive .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.detail-archive .carousel{
+    width: 100%;
+}
+.detail-archive .resumen .next{
+    height: 10vh;
+    bottom: 0;
+    position: absolute;
+}
+.detail-archive .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.detail-archive .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.detail-archive .column-artists .title-section.back{
+    font-size: 1.7vw;
+    width: 35%;
+}
+.detail-archive .column-artists .title-section.back a{
+    right: 3%;
+    position: absolute;
+    font-family: 'AnoRegular';
+    cursor: pointer;
+}
+.detail-archive .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+@media (min-width: 1700px) {
+    .center span{
+        font-size: 11pt;
+    }
+    .big{
+        font-size: 12pt;
+    }
+}
+.detail-archive .description-artist{
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 70vh;
+}
+.detail-archive .description-artist p{
+    font-size: 1.7vw;
+    margin: 0;
+}
+.detail-archive .description-artist p.web{
+    font-family: 'ATApoc';
+    font-size: 1.3vw;
+letter-spacing: 0.1rem;
+}
+.detail-archive .description-artist p.description{
+    margin-top: 3%;
+    /* line-height: 18.5pt; */
+    letter-spacing: 0.25pt;
+}
+@media (min-width: 1550px) {
+    /* .detail-archive .description-artist p.description{
+        line-height: 24.5pt;
+    } */
+}
+/* .detail-archive .carousel-control-prev{
+    left: 30%;
+}
+.detail-archive .carousel-control-next{
+    right: 30%;
+} */
+.detail-archive .next-works{
+    left: 0;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.6vw;
+}
+.detail-archive .next.works .col-12 .col-6{
+    padding: 0;
+}
+
+/* PAGE COMMUNITY */
+.page-community.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.page-community .column-artists{
+    padding: 0 !important;
+    overflow-y: scroll;
+}
+.page-community .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.page-community .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.page-community .column-artists .title-section span.other-type{
+    position: absolute;
+    line-height: 64px;
+    font-size: 3.7vw;
+    /* margin-bottom: 2.5%; */
+}
+.page-community .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+.page-community .column-artists .title-section p{
+    margin: 0;
+}
+.page-community .column-artists .list-artists{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.page-community .column-artists .list-artists .artists{
+    font-size: 1.5vw;
+    text-transform: uppercase;
+    letter-spacing: 1.7pt;
+}
+.page-community .column-artists .list-artists .artists-hover{
+    font-family: 'ATApocItalic';
+    letter-spacing: 0.75pt;
+}
+.page-community .resumen img{
+    width: auto;
+    height: auto;
+    max-height: 51vh;
+    /* max-width: 51vh; */
+    max-width: 100%;
+    display: flex;
+}
+.page-community .resumen{
+    padding: 0 !important;
+}
+.page-community .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page-community{
+    border-bottom: 2.3px solid #00FC00;
+}
+.page-community .column-artists .title-section.back{
+    font-size: 1.7vw;
+    width: 35%;
+}
+.page-community .column-artists .title-section.back a{
+    right: 3%;
+    position: absolute;
+    font-family: 'AnoRegular';
+    cursor: pointer;
+}
+
+/* COMMUNITY */
+.detail-community.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.detail-community .resumen{
+    padding: 0 !important;
+}
+.detail-community .resumen-content-modal{
+    cursor: pointer;
+}
+.detail-community .carousel-item p{
+    position: fixed;
+    bottom: 3.8vh;
+    /* z-index: 5; */
+    text-align: center;
+    width: 47%;
+    margin-bottom: 0;
+    animation-duration: 1s;
+    animation-name: slidetext;
+    font-size: 1.3vw;
+    letter-spacing: 0.1rem;
+    font-family: 'ATApoc';
+}
+@keyframes slidetext {
+    0%   {opacity: 0;}
+    80%   {opacity: 0;}
+    100%  {opacity: 1;}
+}
+@media (min-width: 992px){
+    .modal-lg, .modal-xl{
+        max-width: 80%;
+    }
+    .modal-lg img, .modal-xl img{
+        min-height: 90vh;
+        max-height: 90vh;
+        object-fit: cover;
+    }
+}
+.detail-community .resumen .next a, .resumen .next .col-10, .resumen .next .col-12{
+    height: 100%;
+    display: flex;
+    width: 100%;
+}
+.detail-community .resumen .next .col-10 p{
+    display: flex;
+    margin: auto;
+    font-size: 1.3vw;
+    letter-spacing: 0.1rem;
+    font-family: 'ATApoc';
+}
+.detail-community .resumen .next .col-12 p{
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.7vw;
+}
+.detail-community .resumen .next .text-left a i{
+    display: flex;
+    margin: auto;
+    margin-left: 0;
+    font-size: 20px;
+}
+.detail-community .resumen .next .text-right a i{
+    display: flex;
+    margin: auto;
+    margin-right: 0;
+    font-size: 20px;
+}
+.detail-community .resumen img{
+    max-height: 75vh;
+    margin: auto;
+    width: auto;
+    height: auto;
+    max-height: 75vh;
+    /* max-width: 76vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.detail-community .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.detail-community .carousel{
+    width: 100%;
+}
+.detail-community .resumen .next{
+    /* height: 10vh;
+    bottom: 0;
+    position: absolute; */
+    height: 10vh;
+    bottom: 0;
+    position: fixed;
+    width: 50% !important;
+    z-index: 1;
+}
+.detail-community .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.detail-community .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.detail-community .column-artists .title-section.back{
+    font-size: 1.7vw;
+    width: 35%;
+}
+.detail-community .column-artists .title-section.back a{
+    right: 3%;
+    position: absolute;
+    font-family: 'AnoRegular';
+    cursor: pointer;
+}
+.detail-community .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+@media (min-width: 1700px) {
+    .center span{
+        font-size: 11pt;
+    }
+    .big{
+        font-size: 12pt;
+    }
+}
+.detail-community .description-artist{
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 80vh;
+}
+.detail-community .description-artist p{
+    font-size: 1.7vw;
+    margin: 0;
+}
+.detail-community .description-artist p.web{
+    font-family: 'ATApoc';
+    font-size: 1.3vw;
+    letter-spacing: 0.1rem;
+}
+.detail-community .description-artist p.description{
+    margin-top: 3%;
+    /* line-height: 18.5pt; */
+    letter-spacing: 0.25pt;
+}
+@media (min-width: 1550px) {
+    /* .detail-community .description-artist p.description{
+        line-height: 24.5pt;
+    } */
+}
+/* .detail-community .carousel-control-prev{
+    left: 30%;
+}
+.detail-community .carousel-control-next{
+    right: 30%;
+} */
+.detail-community .next-works{
+    left: 0;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.6vw;
+}
+.detail-community .next.works .col-12 .col-6{
+    padding: 0;
+}
+
+/* PAGE PROJECTS */
+.page-projects.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.page-projects .column-artists{
+    padding: 0 !important;
+    overflow-y: scroll;
+}
+.page-projects .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.page-projects .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.page-projects .column-artists .title-section span.other-type{
+    position: absolute;
+    line-height: 64px;
+    font-size: 3.7vw;
+    /* margin-bottom: 2.5%; */
+}
+.page-projects .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+.page-projects .column-artists .title-section p{
+    margin: 0;
+}
+.page-projects .column-artists .list-artists{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.page-projects .column-artists .list-artists .artists{
+    font-size: 1.5vw;
+    text-transform: uppercase;
+    letter-spacing: 1.7pt;
+}
+.page-projects .column-artists .list-artists .artists-hover{
+    font-family: 'ATApocItalic';
+    letter-spacing: 0.75pt;
+}
+.page-projects .resumen img{
+    width: auto;
+    height: auto;
+    max-height: 51vh;
+    /* max-width: 51vh; */
+    max-width: 40vh;
+    display: flex;
+}
+.page-projects .resumen{
+    padding: 0 !important;
+}
+.page-projects .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page-projects{
+    border-bottom: 2.3px solid #00FC00;
+}
+
+/* PROJECTS */
+.detail-projects.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.detail-projects .resumen{
+    padding: 0 !important;
+}
+.detail-projects .resumen-content-modal{
+    cursor: pointer;
+}
+.detail-projects .carousel-item p{
+    position: fixed;
+    bottom: 3.8vh;
+    /* z-index: 5; */
+    text-align: center;
+    width: 47%;
+    margin-bottom: 0;
+    animation-duration: 1s;
+    animation-name: slidetext;
+    font-size: 1.3vw;
+    letter-spacing: 0.1rem;
+    font-family: 'ATApoc';
+}
+@keyframes slidetext {
+    0%   {opacity: 0;}
+    80%   {opacity: 0;}
+    100%  {opacity: 1;}
+}
+@media (min-width: 992px){
+    .modal-lg, .modal-xl{
+        max-width: 80%;
+    }
+    .modal-lg img, .modal-xl img{
+        min-height: 90vh;
+        max-height: 90vh;
+        object-fit: cover;
+    }
+}
+.detail-projects .resumen .next a, .resumen .next .col-10, .resumen .next .col-12{
+    height: 100%;
+    display: flex;
+    width: 100%;
+}
+.detail-projects .resumen .next .col-10 p{
+    display: flex;
+    margin: auto;
+    font-size: 1.3vw;
+    letter-spacing: 0.1rem;
+    font-family: 'ATApoc';
+}
+.detail-projects .resumen .next .col-12 p{
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.7vw;
+}
+.detail-projects .resumen .next .text-left a i{
+    display: flex;
+    margin: auto;
+    margin-left: 0;
+    font-size: 20px;
+}
+.detail-projects .resumen .next .text-right a i{
+    display: flex;
+    margin: auto;
+    margin-right: 0;
+    font-size: 20px;
+}
+.detail-projects .resumen img{
+    max-height: 75vh;
+    margin: auto;
+    width: auto;
+    height: auto;
+    max-height: 75vh;
+    /* max-width: 76vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.detail-projects .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.detail-projects .carousel{
+    width: 100%;
+}
+.detail-projects .resumen .next{
+    /* height: 10vh;
+    bottom: 0;
+    position: absolute; */
+    height: 10vh;
+    bottom: 0;
+    position: fixed;
+    width: 50% !important;
+    z-index: 1;
+}
+.detail-projects .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.detail-projects .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.detail-projects .column-artists .title-section.back{
+    font-size: 1.7vw;
+    width: 35%;
+}
+.detail-projects .column-artists .title-section.back a{
+    right: 3%;
+    position: absolute;
+    font-family: 'AnoRegular';
+    cursor: pointer;
+}
+.detail-projects .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+@media (min-width: 1700px) {
+    .center span{
+        font-size: 11pt;
+    }
+    .big{
+        font-size: 12pt;
+    }
+}
+.detail-projects .description-artist{
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 80vh;
+}
+.detail-projects .description-artist p{
+    font-size: 1.7vw;
+    margin: 0;
+}
+.detail-projects .description-artist p.name, .detail-projects .description-artist p.year{
+    text-transform: uppercase;
+}
+.detail-projects .description-artist p.web{
+    font-family: 'ATApoc';
+    font-size: 1.3vw;
+    letter-spacing: 0.1rem;
+}
+.detail-projects .description-artist p.description{
+    margin-top: 3%;
+    /* line-height: 18.5pt; */
+    letter-spacing: 0.25pt;
+}
+@media (min-width: 1550px) {
+    /* .detail-projects .description-artist p.description{
+        line-height: 24.5pt;
+    } */
+}
+/* .detail-projects .carousel-control-prev{
+    left: 30%;
+}
+.detail-projects .carousel-control-next{
+    right: 30%;
+} */
+.detail-projects .next-works{
+    left: 0;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.6vw;
+}
+.detail-projects .next.works .col-12 .col-6{
+    padding: 0;
+}
+.detail-projects{
+    border-left: 2.3px solid #00FC00;
+    border-bottom: 2.3px solid #00FC00;
+}
+
+
+/* PAGE EXHIBITIONS */
+.page-exhibitions.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.page-exhibitions .column-artists{
+    padding: 0 !important;
+    overflow-y: scroll;
+}
+.page-exhibitions .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.page-exhibitions .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.page-exhibitions .column-artists .title-section span.other-type{
+    position: absolute;
+    line-height: 64px;
+    font-size: 3.7vw;
+    /* margin-bottom: 2.5%; */
+}
+.page-exhibitions .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+.page-exhibitions .column-artists .title-section p{
+    margin: 0;
+}
+.page-exhibitions .column-artists .list-artists{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.page-exhibitions .column-artists .list-artists .artists{
+    font-size: 1.5vw;
+    text-transform: uppercase;
+    letter-spacing: 1.7pt;
+    line-height: 1.3rem;
+}
+.page-exhibitions .column-artists .list-artists .artists-hover{
+    font-family: 'ATApocItalic';
+    letter-spacing: 0.75pt;
+}
+.page-exhibitions .resumen img{
+    width: auto;
+    height: auto;
+    max-height: 51vh;
+    /* max-width: 51vh; */
+    max-width: 40vh;
+    display: flex;
+}
+.page-exhibitions .resumen{
+    padding: 0 !important;
+}
+.page-exhibitions .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* EXHIBITIONS */
+.detail-exhibitions.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.detail-exhibitions .resumen{
+    padding: 0 !important;
+}
+.detail-exhibitions .resumen-content-modal{
+    cursor: pointer;
+}
+.detail-exhibitions .carousel-item p{
+    position: fixed;
+    bottom: 3.8vh;
+    /* z-index: 5; */
+    text-align: center;
+    width: 47%;
+    margin-bottom: 0;
+    animation-duration: 1s;
+    animation-name: slidetext;
+    font-size: 1.3vw;
+    letter-spacing: 0.1rem;
+    font-family: 'ATApoc';
+}
+@keyframes slidetext {
+    0%   {opacity: 0;}
+    80%   {opacity: 0;}
+    100%  {opacity: 1;}
+}
+@media (min-width: 992px){
+    .modal-lg, .modal-xl{
+        max-width: 80%;
+    }
+    .modal-lg img, .modal-xl img{
+        min-height: 90vh;
+        max-height: 90vh;
+        object-fit: cover;
+    }
+}
+.detail-exhibitions .resumen .next a, .resumen .next .col-10, .resumen .next .col-12{
+    height: 100%;
+    display: flex;
+    width: 100%;
+}
+.detail-exhibitions .resumen .next .col-10 p{
+    display: flex;
+    margin: auto;
+    font-size: 1.3vw;
+    letter-spacing: 0.1rem;
+    font-family: 'ATApoc';
+}
+.detail-exhibitions .resumen .next .col-12 p{
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.7vw;
+}
+.detail-exhibitions .resumen .next .text-left a i{
+    display: flex;
+    margin: auto;
+    margin-left: 0;
+    font-size: 20px;
+}
+.detail-exhibitions .resumen .next .text-right a i{
+    display: flex;
+    margin: auto;
+    margin-right: 0;
+    font-size: 20px;
+}
+.detail-exhibitions .resumen img{
+    max-height: 75vh;
+    margin: auto;
+    width: auto;
+    height: auto;
+    max-height: 75vh;
+    /* max-width: 76vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.detail-exhibitions .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.detail-exhibitions .carousel{
+    width: 100%;
+}
+.detail-exhibitions .resumen .next{
+    /* height: 10vh;
+    bottom: 0;
+    position: absolute; */
+    height: 10vh;
+    bottom: 0;
+    position: fixed;
+    width: 50% !important;
+    z-index: 1;
+}
+.detail-exhibitions .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.detail-exhibitions .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.detail-exhibitions .column-artists .title-section.back{
+    font-size: 1.7vw;
+    width: 35%;
+}
+.detail-exhibitions .column-artists .title-section.back a{
+    right: 3%;
+    position: absolute;
+    font-family: 'AnoRegular';
+    cursor: pointer;
+}
+.detail-exhibitions .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+@media (min-width: 1700px) {
+    .center span{
+        font-size: 11pt;
+    }
+    .big{
+        font-size: 12pt;
+    }
+}
+.detail-exhibitions .description-artist{
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 80vh;
+}
+.detail-exhibitions .description-artist p{
+    font-size: 1.7vw;
+    margin: 0;
+}
+.detail-exhibitions .description-artist p.name{
+    text-transform: uppercase;
+}
+.detail-exhibitions .description-artist p.web{
+    font-family: 'ATApoc';
+    font-size: 1.3vw;
+letter-spacing: 0.1rem;
+}
+.detail-exhibitions .description-artist p.description{
+    margin-top: 3%;
+    /* line-height: 18.5pt; */
+    letter-spacing: 0.25pt;
+}
+@media (min-width: 1550px) {
+    /* .detail-exhibitions .description-artist p.description{
+        line-height: 24.5pt;
+    } */
+}
+/* .detail-exhibitions .carousel-control-prev{
+    left: 30%;
+}
+.detail-exhibitions .carousel-control-next{
+    right: 30%;
+} */
+.detail-exhibitions .next-works{
+    left: 0;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.6vw;
+}
+.detail-exhibitions .next.works .col-12 .col-6{
+    padding: 0;
+}
+
+
+/* PAGE WORKSHOP */
+.page-workshop.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.page-workshop .column-artists{
+    padding: 0 !important;
+}
+.page-workshop .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.page-workshop .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.page-workshop .column-artists .title-section span.other-type{
+    position: absolute;
+    line-height: 64px;
+    font-size: 3.7vw;
+    /* margin-bottom: 2.5%; */
+}
+.page-workshop .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+.page-workshop .column-artists .title-section p{
+    margin: 0;
+}
+
+.page-workshop .column-artists .text-detail-workshop{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.page-workshop .resumen .col-4 {
+    padding: 15px;
+    height: 33%;
+}
+.page-workshop .column-artists .text-detail-workshop p{
+    width: 100%;
+    text-align: center;
+    font-size: 1.7vw;
+    margin-bottom: 0;
+}
+.page-workshop .text-detail-workshop p.title, .page-workshop .text-detail-workshop p.color{
+    text-transform: uppercase;
+}
+.page-workshop .column-artists .text-detail-workshop p.artist{
+    font-size: 1vw;
+    font-family: 'ATApocItalic';
+}
+.page-workshop .column-artists .text-detail-workshop .workshop{
+    font-size: 2.2vw;
+    text-transform: uppercase;
+    letter-spacing: 1.7pt;
+}
+
+.page-workshop .resumen{
+    padding: 0 !important;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow-y: scroll;
+}
+.page-workshop .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page-workshop .resumen .col-4{
+    padding: 15px;
+}
+.page-workshop .resumen img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* WORKSHOP */
+.detail-workshop.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.detail-workshop .resumen{
+    padding: 0 !important;
+}
+.detail-workshop .resumen-content-modal{
+    cursor: pointer;
+}
+@media (min-width: 992px){
+    .modal-lg, .modal-xl{
+        max-width: 80%;
+    }
+    .modal-lg img, .modal-xl img{
+        min-height: 90vh;
+        max-height: 90vh;
+        object-fit: cover;
+    }
+}
+.detail-workshop .resumen .next a, .resumen .next .col-10, .resumen .next .col-12{
+    height: 100%;
+    display: flex;
+}
+.detail-workshop .resumen .next .col-10 p{
+    display: flex;
+    margin: auto;
+    font-size: 1.3vw;
+letter-spacing: 0.1rem;
+    font-family: 'ATApoc';
+}
+.detail-workshop .resumen .next .col-6 a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-size: 1.7vw;
+}
+.detail-workshop .resumen .next .text-left a i{
+    display: flex;
+    margin: auto;
+    margin-left: 0;
+    font-size: 20px;
+}
+.detail-workshop .resumen .next .text-right a i{
+    display: flex;
+    margin: auto;
+    margin-right: 0;
+    font-size: 20px;
+}
+.detail-workshop .resumen img{
+    max-height: 75vh;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.detail-workshop .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+.detail-workshop .carousel{
+    width: 100%;
+}
+.detail-workshop .resumen .next{
+    height: 10vh;
+    bottom: 0;
+    position: absolute;
+}
+.detail-workshop .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.detail-workshop .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.detail-workshop .column-artists .title-section.back{
+    font-size: 1.7vw;
+    width: 35%;
+}
+.detail-workshop .column-artists .title-section.back a{
+    right: 3%;
+    position: absolute;
+    font-family: 'AnoRegular';
+    cursor: pointer;
+}
+.detail-workshop .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+@media (min-width: 1700px) {
+    .center span{
+        font-size: 11pt;
+    }
+    .big{
+        font-size: 12pt;
+    }
+}
+.detail-workshop .description-artist{
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 80vh;
+}
+.detail-workshop .description-artist p{
+    font-size: 1.7vw;
+    margin: 0;
+}
+.detail-workshop .description-artist p.web{
+    font-family: 'ATApoc';
+    font-size: 1.3vw;
+letter-spacing: 0.1rem;
+}
+.detail-workshop .description-artist p.description{
+    margin-top: 3%;
+    margin-bottom: 3%;
+    /* line-height: 18.5pt; */
+    letter-spacing: 0.25pt;
+}
+@media (min-width: 1550px) {
+    /* .detail-workshop .description-artist p.description{
+        line-height: 24.5pt;
+    } */
+}
+.detail-workshop .carousel-control-prev{
+    left: 0;
+    height: 80vh;
+    width: 6%;
+}
+.detail-workshop .carousel-control-next{
+    right: 0;
+    height: 80vh;
+    width: 6%;
+}
+.detail-workshop .next-works{
+    left: 0;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.6vw;
+}
+.detail-workshop .next.works .col-12 .col-6{
+    padding: 0;
+}
+
+
+/* PAGE SHOP */
+.page-shop.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.page-shop .column-artists{
+    padding: 0 !important;
+}
+.page-shop .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.page-shop .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.page-shop .column-artists .title-section span.other-type{
+    position: absolute;
+    line-height: 64px;
+    font-size: 3.7vw;
+    /* margin-bottom: 2.5%; */
+}
+.page-shop .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+.page-shop .column-artists .title-section p{
+    margin: 0;
+}
+
+.page-shop .column-artists .text-detail-shop{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.page-shop .column-artists .text-detail-shop p{
+    width: 100%;
+    text-align: center;
+    font-size: 1.7vw;
+    margin-bottom: 0;
+}
+.page-shop .text-detail-shop p.title, .page-shop .text-detail-shop p.color{
+    text-transform: uppercase;
+}
+.page-shop .column-artists .text-detail-shop p.artist{
+    font-size: 1vw;
+    font-family: 'ATApocItalic';
+}
+.page-shop .column-artists .text-detail-shop .workshop{
+    font-size: 2.2vw;
+    text-transform: uppercase;
+    letter-spacing: 1.7pt;
+}
+
+.page-shop .resumen{
+    padding: 0 !important;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow-y: scroll;
+}
+.page-shop .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page-shop .resumen .col-4{
+    padding: 15px;
+    height: 33%;
+}
+.page-shop .resumen img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* SHOP */
+.detail-shop.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.detail-shop .resumen{
+    padding: 0 !important;
+}
+.detail-shop .resumen-content-modal{
+    cursor: pointer;
+}
+@media (min-width: 992px){
+    .modal-lg, .modal-xl{
+        max-width: 80%;
+    }
+    .modal-lg img, .modal-xl img{
+        min-height: 90vh;
+        max-height: 90vh;
+        object-fit: cover;
+    }
+}
+.detail-shop .resumen .next a, .resumen .next .col-10, .resumen .next .col-12{
+    height: 100%;
+    display: flex;
+}
+.detail-shop .resumen .next .col-10 p{
+    display: flex;
+    margin: auto;
+    font-size: 1.3vw;
+letter-spacing: 0.1rem;
+    font-family: 'ATApoc';
+}
+.detail-shop .resumen .next .col-6 a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-size: 1.7vw;
+}
+.detail-shop .resumen .next .text-left a i{
+    display: flex;
+    margin: auto;
+    margin-left: 0;
+    font-size: 20px;
+}
+.detail-shop .resumen .next .text-right a i{
+    display: flex;
+    margin: auto;
+    margin-right: 0;
+    font-size: 20px;
+}
+.detail-shop .resumen img{
+    max-height: 75vh;
+    margin: auto;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    display: flex;
+}
+.detail-shop .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+.detail-shop .carousel{
+    width: 100%;
+}
+.detail-shop .resumen .next{
+/*     height: 10vh;
+    bottom: 0; */
+    position: absolute;
+}
+.detail-shop .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.detail-shop .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.detail-shop .column-artists .title-section.back{
+    font-size: 1.7vw;
+    width: 35%;
+}
+.detail-shop .column-artists .title-section.back a{
+    right: 3%;
+    position: absolute;
+    font-family: 'AnoRegular';
+    cursor: pointer;
+}
+.detail-shop .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+@media (min-width: 1700px) {
+    .center span{
+        font-size: 11pt;
+    }
+    .big{
+        font-size: 12pt;
+    }
+}
+.detail-shop .description-artist{
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 80vh;
+}
+.detail-shop .description-artist p{
+    font-size: 1.7vw;
+    margin: 0;
+}
+.detail-shop .description-artist p.title, .detail-shop .description-artist p.color{
+    text-transform: uppercase;
+}
+.detail-shop .description-artist p.price{
+    font-family: 'ATApoc';
+    font-size: 1.3vw;
+letter-spacing: 0.1rem;
+}
+.detail-shop .description-artist p.description{
+    margin-top: 3%;
+    margin-bottom: 3%;
+    /* line-height: 18.5pt; */
+    letter-spacing: 0.25pt;
+}
+@media (min-width: 1550px) {
+    /* .detail-shop .description-artist p.description{
+        line-height: 24.5pt;
+    } */
+}
+.detail-shop .carousel-control-prev{
+    left: 0;
+    height: 80vh;
+}
+.detail-shop .carousel-control-next{
+    right: 0;
+    height: 80vh;
+}
+.detail-shop .next-works{
+    left: 0;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.6vw;
+}
+.detail-shop .next.works .col-12 .col-6{
+    padding: 0;
+}
+.detail-shop ul{
+    display: flex;
+    padding: 0;
+}
+.detail-shop ul li{
+    list-style: none;
+    padding: 1%;
+    margin-right: 1%;
+    border: 2.3px solid #00FC00;
+}
+form.cart button.button{
+    font-family: 'AnoRegular', sans-serif;
+    color: white !important;
+    background-color: transparent !important;
+    font-size: 1.7vw;
+    padding: 4px 0 !important;
+    position: fixed;
+    bottom: 3vh;
+    width: 90%;
+    left: 10%;
+    z-index: 3;
+}
+form.cart .quantity{
+    display: none;
+}
+.woocommerce div.product form.cart .variations select{
+    background-color: #00FC00;
+    border: 0;
+    padding: 3%;
+}
+
+/* PAGE DONATIONS */
+.page-donations.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.page-donations .column-artists{
+    padding: 0 !important;
+}
+.page-donations .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.page-donations .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.page-donations .column-artists .title-section span.other-type{
+    position: absolute;
+    line-height: 64px;
+    font-size: 3.7vw;
+    /* margin-bottom: 2.5%; */
+}
+.page-donations .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+.page-donations .column-artists .title-section p{
+    margin: 0;
+}
+
+.page-donations .column-artists .text-detail-donations{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.page-donations .column-artists .text-detail-donations p{
+    width: 100%;
+    text-align: center;
+    font-size: 1.7vw;
+    margin-bottom: 0;
+}
+.page-donations .column-artists .text-detail-donations p.artist{
+    font-size: 1vw;
+    font-family: 'ATApocItalic';
+}
+.page-donations .column-artists .text-detail-donations .workshop{
+    font-size: 2.2vw;
+    text-transform: uppercase;
+    letter-spacing: 1.7pt;
+}
+
+.page-donations .resumen{
+    padding: 0 !important;
+    flex-wrap: wrap;
+}
+.page-donations .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page-donations .resumen .col-4{
+    padding: 15px;
+}
+.page-donations .resumen img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* DONATIONS */
+.detail-donations.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.detail-donations .resumen{
+    padding: 0 !important;
+}
+.detail-donations .resumen-content-modal{
+    cursor: pointer;
+}
+@media (min-width: 992px){
+    .modal-lg, .modal-xl{
+        max-width: 80%;
+    }
+    .modal-lg img, .modal-xl img{
+        min-height: 90vh;
+        max-height: 90vh;
+        object-fit: cover;
+    }
+}
+.detail-donations .resumen .next a, .resumen .next .col-10, .resumen .next .col-12{
+    height: 100%;
+    display: flex;
+    width: 100%;
+}
+.detail-donations .resumen .next .col-10 p{
+    display: flex;
+    margin: auto;
+    font-size: 1.3vw;
+letter-spacing: 0.1rem;
+    font-family: 'ATApoc';
+}
+.detail-donations .resumen .next .col-6 a{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 0;
+    font-size: 1.7vw;
+}
+.detail-donations .resumen .next .text-left a i{
+    display: flex;
+    margin: auto;
+    margin-left: 0;
+    font-size: 20px;
+}
+.detail-donations .resumen .next .text-right a i{
+    display: flex;
+    margin: auto;
+    margin-right: 0;
+    font-size: 20px;
+}
+.detail-donations .resumen img{
+    max-height: 75vh;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.detail-donations .resumen .content{
+    width: 100%;
+    /* margin-bottom: 10vh; */
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.detail-donations .carousel{
+    width: 100%;
+}
+.detail-donations .resumen .next{
+    height: 10vh;
+    bottom: 0;
+    position: absolute;
+}
+.detail-donations .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.detail-donations .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.detail-donations .column-artists .title-section.back{
+    font-size: 1.7vw;
+    width: 35%;
+}
+.detail-donations .column-artists .title-section.back a{
+    right: 3%;
+    position: absolute;
+    font-family: 'AnoRegular';
+    cursor: pointer;
+}
+.detail-donations .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+@media (min-width: 1700px) {
+    .center span{
+        font-size: 11pt;
+    }
+    .big{
+        font-size: 12pt;
+    }
+}
+.detail-donations .description-artist{
+    /* flex-direction: column; */
+    overflow-y: scroll;
+    height: 79vh;
+}
+.detail-donations .description-artist p{
+    font-size: 1.7vw;
+    margin: 0;
+}
+.detail-donations .description-artist p.price{
+    font-family: 'ATApoc';
+    font-size: 1.3vw;
+letter-spacing: 0.1rem;
+}
+.detail-donations .description-artist p.description{
+    margin-top: 3%;
+    /* line-height: 18.5pt; */
+    letter-spacing: 0.25pt;
+}
+@media (min-width: 1550px) {
+    /* .detail-donations .description-artist p.description{
+        line-height: 24.5pt;
+    } */
+}
+/* .detail-donations .carousel-control-prev{
+    left: 30%;
+}
+.detail-donations .carousel-control-next{
+    right: 30%;
+} */
+.detail-donations .next-works{
+    left: 0;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.6vw;
+}
+.detail-donations .next.works .col-12 .col-6{
+    padding: 0;
+}
+
+/* PAGE ARTISTS */
+.page-artists.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.page-artists .column-artists{
+    padding: 0 !important;
+    overflow-y: scroll;
+}
+.page-artists .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.page-artists .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.page-artists .column-artists .title-section span.other-type{
+    position: absolute;
+    line-height: 64px;
+    font-size: 3.7vw;
+    /* margin-bottom: 2.5%; */
+}
+.page-artists .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+.page-artists .column-artists .title-section p{
+    margin: 0;
+}
+.page-artists .column-artists .list-artists{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.page-artists .column-artists .list-artists .artists{
+    font-size: 1.5vw;
+    text-transform: uppercase;
+    letter-spacing: 1.7pt;
+}
+.page-artists .column-artists .list-artists .artists-hover{
+    font-family: 'ATApocItalic';
+    letter-spacing: 0.75pt;
+}
+.page-artists .resumen img{
+    width: auto;
+    height: auto;
+    max-height: 51vh;
+    /* max-width: 51vh; */
+    max-width: 40vh;
+    display: flex;
+}
+.page-artists .resumen{
+    padding: 0 !important;
+}
+.page-artists .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ARTIST*/
+.detail-artist.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.detail-artist .resumen{
+    padding: 0 !important;
+}
+.detail-artist .resumen-content-modal{
+    cursor: pointer;
+}
+.detail-artist .carousel-item p{
+    position: fixed;
+    bottom: 3vh;
+    /* z-index: 5; */
+    text-align: center;
+    width: 47%;
+    margin-bottom: 0;
+    animation-duration: 1s;
+    animation-name: slidetext;
+    font-size: 1.3vw;
+    letter-spacing: 0.1rem;
+    font-family: 'ATApoc';
+}
+@keyframes slidetext {
+    0%   {opacity: 0;}
+    80%   {opacity: 0;}
+    100%  {opacity: 1;}
+}
+@media (min-width: 992px){
+    .modal-lg, .modal-xl{
+        max-width: 80%;
+    }
+    .modal-lg img, .modal-xl img{
+        min-height: 90vh;
+        max-height: 90vh;
+        object-fit: cover;
+    }
+}
+.detail-artist .resumen .next a, .resumen .next .col-10, .resumen .next .col-12{
+    height: 100%;
+    display: flex;
+    width: 100%;
+}
+.detail-artist .resumen .next .col-10 p{
+    display: flex;
+    margin: auto;
+    font-size: 1.3vw;
+    letter-spacing: 0.1rem;
+    font-family: 'ATApoc';
+}
+.detail-artist .resumen .next .col-12 p{
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.7vw;
+}
+.detail-artist .resumen .next .text-left a i{
+    display: flex;
+    margin: auto;
+    margin-left: 0;
+    font-size: 20px;
+}
+.detail-artist .resumen .next .text-right a i{
+    display: flex;
+    margin: auto;
+    margin-right: 0;
+    font-size: 20px;
+}
+.detail-artist .resumen img{
+    max-height: 75vh;
+    margin: auto;
+    width: auto;
+    height: auto;
+    max-height: 75vh;
+    /* max-width: 76vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.detail-artist .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.detail-artist .carousel{
+    width: 100%;
+}
+.detail-artist .resumen .next{
+    /* height: 10vh;
+    bottom: 0;
+    position: absolute; */
+    height: 10vh;
+    bottom: 0;
+    position: fixed;
+    width: 50% !important;
+    z-index: 1;
+}
+.detail-artist .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+}
+.detail-artist .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.detail-artist .column-artists .title-section.back{
+    font-size: 1.7vw;
+    width: 35%;
+}
+.detail-artist .column-artists .title-section.back a{
+    right: 3%;
+    position: absolute;
+    font-family: 'AnoRegular';
+    cursor: pointer;
+}
+.detail-artist .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+@media (min-width: 1700px) {
+    .center span{
+        font-size: 11pt;
+    }
+    .big{
+        font-size: 12pt;
+    }
+}
+.detail-artist .description-artist{
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 70vh;
+}
+.detail-artist .description-artist p{
+    font-size: 1.7vw;
+    margin: 0;
+}
+.detail-artist .description-artist p.web a{
+    font-family: 'ATApoc';
+    font-size: 1.3vw;
+    letter-spacing: 0.1rem;
+}
+.detail-artist .description-artist p.description{
+    margin-top: 3%;
+    /* line-height: 18.5pt; */
+    letter-spacing: 0.25pt;
+}
+@media (min-width: 1550px) {
+    /* .detail-artist .description-artist p.description{
+        line-height: 24.5pt;
+    } */
+}
+/* .detail-artist .carousel-control-prev{
+    left: 30%;
+}
+.detail-artist .carousel-control-next{
+    right: 30%;
+} */
+.detail-artist .next-works{
+    left: 0;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.6vw;
+}
+.detail-artist .next.works .col-12 .col-6{
+    padding: 0;
+}
+@media (min-width: 1550px) {
+    /* .description-artist p.description{
+        line-height: 24.5pt;
+    } */
+}
+
+
+
+/* ABOUT */
+.detail-about.bg-full-container {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.detail-about .resumen{
+    padding: 0 !important;
+}
+.detail-about .resumen-content-modal{
+    cursor: pointer;
+}
+@media (min-width: 992px){
+    .modal-lg, .modal-xl{
+        max-width: 80%;
+    }
+    .modal-lg img, .modal-xl img{
+        min-height: 90vh;
+        max-height: 90vh;
+        object-fit: cover;
+    }
+}
+.detail-about .resumen .next a, .resumen .next .col-10, .resumen .next .col-12{
+    height: 100%;
+    display: flex;
+    width: 100%;
+}
+.detail-about .resumen .next .col-10 p{
+    display: flex;
+    margin: auto;
+    font-size: 1.3vw;
+letter-spacing: 0.1rem;
+    font-family: 'ATApoc';
+}
+.detail-about .resumen .next .col-12 p{
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.7vw;
+}
+.detail-about .resumen .next .text-left a i{
+    display: flex;
+    margin: auto;
+    margin-left: 0;
+    font-size: 20px;
+}
+.detail-about .resumen .next .text-right a i{
+    display: flex;
+    margin: auto;
+    margin-right: 0;
+    font-size: 20px;
+}
+.detail-about .resumen img{
+    max-height: 75vh;
+    margin: auto;
+    width: auto;
+    height: auto;
+    max-height: 75vh;
+    max-width: 76vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.detail-about .resumen .content{
+    width: 100%;
+    margin-bottom: 10vh;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.detail-about .carousel{
+    width: 100%;
+}
+.detail-about .resumen .next{
+    height: 10vh;
+    bottom: 0;
+    position: absolute;
+}
+.detail-about .column-artists .title-section{
+    font-size: 3.7vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* padding-top: 1.5%; */
+    font-family: 'SuisseIntl';
+}
+.detail-about .column-artists .title-section a{
+    font-family: 'SuisseIntl';
+}
+.detail-about .column-artists{
+    padding: 0;
+}
+.detail-about .column-artists .title-section span.other-type a{
+    font-family: 'ATApocItalic', sans-serif;
+    text-transform: uppercase;
+    color: transparent !important;
+    -webkit-text-stroke: 1px #00FC00;
+    text-decoration: none;
+}
+@media (min-width: 1700px) {
+    .center span{
+        font-size: 11pt;
+    }
+    .big{
+        font-size: 12pt;
+    }
+}
+.detail-about .description-artist{
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 70vh;
+}
+.detail-about .description-artist p{
+    font-size: 1.7vw;
+    margin: 0;
+}
+.detail-about .description-artist p.web{
+    font-family: 'ATApoc';
+    font-size: 1.3vw;
+letter-spacing: 0.1rem;
+}
+.detail-about .description-artist p.description{
+    margin-top: 3%;
+    /* line-height: 18.5pt; */
+    letter-spacing: 0.25pt;
+}
+.detail-about .next-works{
+    left: 0;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.6vw;
+}
+.detail-about .next.works .col-12 .col-6{
+    padding: 0;
+}
+.description-about{
+    flex-direction: column;
+}
+.about .description-about{
+    overflow-y: scroll;
+    height: 80vh;
+}
+.contact .description-about{
+    overflow-y: scroll;
+    height: 80vh;
+}
+.contact input[type="text"], .contact input[type="email"], .contact textarea, .contact input[type="submit"]{
+    border: 0;
+    border-radius: 0;
+    background-color: #00FC00;
+    font-family: 'ATApoc';
+    font-size: 1.5vh;
+}
+.contact label, .contact textarea{
+    width: 100%;
+}
+.contact input::placeholder, .contact textarea::placeholder{
+    font-family: 'ATApoc';
+    font-size: 1.5vh;
+    color: #000000;
+}
+.contact input[type="submit"]{
+    float: right;
+}
+.description-about p{
+    font-size: 1.7vw;
+    margin: 0;
+}
+.detail-about .description-about .imagen_about{
+    flex-wrap: wrap;
+    display: flex;
+}
+
+/* MODAL */
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    display: inline-block;
+    width: 56px;
+    height: 56px;
+}
+.carousel-control-next.mod, .carousel-control-prev.mod {
+    top: 10%;
+}
+.carousel-control-next, .carousel-control-prev {
+    width: 10%;
+}
+.carousel-control-prev {
+    left: -10%;
+}
+.carousel-control-next {
+    right: -10%;
+}
+.modal-open .modal {
+    background-color: #0000009e;
+}
+.modal-content{
+    background-color: transparent;
+}
+.modal-dialog {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel-control-next-icon {
+    background-image: url(../icons/flecha_derecha.svg);
+}
+.carousel-control-prev-icon {
+    background-image: url(../icons/flecha_izquierda.svg);
+}
+.carousel-control-close-icon {
+    background-image: url(../icons/X.svg);
+    display: inline-block;
+    width: 26px;
+    height: 24px;
+    fill: red;
+    float: right;
+}
+@media (min-width: 992px){
+    .modal-lg img, .modal-xl img {
+        min-height: auto;
+        max-height: auto;
+        object-fit: contain;
+    } 
+}
+@media (min-width: 576px){
+    .modal-dialog {
+        margin: 0 auto;
+    }
+}
+
+/* CART */
+.woocommerce-error, .woocommerce-info, .woocommerce-message{
+    border: 3px solid #00FC00;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+    border-top: 0 !important;
+}
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce .quantity .qty{
+    background-color: #00FC00 !important;
+    color: #000000 !important;
+    border: 0;
+    border-radius: 0 !important;
+    font-family: 'ATApoc';
+    text-transform: uppercase;
+}
+.cart-collaterals{
+    height: 100%;
+}
+.cart-collaterals .cart_totals{
+    width: 100% !important;
+    padding: 3rem;
+}
+.product-thumbnail{
+    display: none;
+}
+.cart-empty{
+    height: 70vh;;
+}
+.cart-collaterals .cart-subtotal th, .cart-collaterals .order-total th, .cart-collaterals .woocommerce-shipping-totals.shipping th{
+    display: none;
+}
+.woocommerce table.shop_table_responsive thead,.woocommerce-page table.shop_table_responsive thead{
+    display:none
+}
+.woocommerce table.shop_table_responsive tbody tr:first-child td:first-child,.woocommerce-page table.shop_table_responsive tbody tr:first-child td:first-child{
+    border-top:0
+}
+.woocommerce table.shop_table_responsive tbody th,.woocommerce-page table.shop_table_responsive tbody th{
+    display:n
+    one
+}
+.woocommerce table.shop_table_responsive tr,.woocommerce-page table.shop_table_responsive tr{
+    display:block
+}.woocommerce table.shop_table_responsive tr td,.woocommerce-page table.shop_table_responsive tr td{
+    display:block;text-align:right!important
+}
+.woocommerce table.shop_table_responsive tr td.order-actions,.woocommerce-page table.shop_table_responsive tr td.order-actions{
+    text-align:left!important
+}
+.woocommerce table.shop_table_responsive tr td::before,.woocommerce-page table.shop_table_responsive tr td::before{
+    content:attr(data-title) ": ";font-weight:700;float:left
+}
+.woocommerce table.shop_table_responsive tr td.actions::before,.woocommerce table.shop_table_responsive tr td.product-remove::before,.woocommerce-page table.shop_table_responsive tr td.actions::before,.woocommerce-page table.shop_table_responsive tr td.product-remove::before{
+    display:none
+}
+.woocommerce table.shop_table_responsive tr:nth-child(2n) td,.woocommerce-page table.shop_table_responsive tr:nth-child(2n) td{
+    background-color:rgba(0,0,0,.025)
+}
+.woocommerce table.my_account_orders tr td.order-actions,.woocommerce-page table.my_account_orders tr td.order-actions{
+    text-align:left
+}
+.woocommerce table.my_account_orders tr td.order-actions::before,.woocommerce-page table.my_account_orders tr td.order-actions::before{
+    display:none
+}
+.woocommerce table.my_account_orders tr td.order-actions .button,.woocommerce-page table.my_account_orders tr td.order-actions .button{
+    float:none;margin:.125em .25em .125em 0
+}
+.woocommerce .col2-set .col-1,.woocommerce .col2-set .col-2,.woocommerce-page .col2-set .col-1,.woocommerce-page .col2-set .col-2{
+    float:none;width:100%
+}
+.woocommerce ul.products[class*=columns-] li.product,.woocommerce-page ul.products[class*=columns-] li.product{
+    width:48%;float:left;clear:both;margin:0 0 2.992em
+}
+.woocommerce ul.products[class*=columns-] li.product:nth-child(2n),.woocommerce-page ul.products[class*=columns-] li.product:nth-child(2n){
+    float:right;clear:none!important
+}
+.woocommerce #content div.product div.images,.woocommerce #content div.product div.summary,.woocommerce div.product div.images,.woocommerce div.product div.summary,.woocommerce-page #content div.product div.images,.woocommerce-page #content div.product div.summary,.woocommerce-page div.product div.images,.woocommerce-page div.product div.summary{
+    float:none;width:100%
+}
+.woocommerce #content table.cart .product-thumbnail,.woocommerce table.cart .product-thumbnail,.woocommerce-page #content table.cart .product-thumbnail,.woocommerce-page table.cart .product-thumbnail{
+    display:none
+}
+.woocommerce #content table.cart td.actions,.woocommerce table.cart td.actions,.woocommerce-page #content table.cart td.actions,.woocommerce-page table.cart td.actions{
+    text-align:left
+}
+.woocommerce #content table.cart td.actions .coupon,.woocommerce table.cart td.actions .coupon,.woocommerce-page #content table.cart td.actions .coupon,.woocommerce-page table.cart td.actions .coupon{
+    float:none;padding-bottom:.5em
+}
+.woocommerce #content table.cart td.actions .coupon::after,.woocommerce #content table.cart td.actions .coupon::before,.woocommerce table.cart td.actions .coupon::after,.woocommerce table.cart td.actions .coupon::before,.woocommerce-page #content table.cart td.actions .coupon::after,.woocommerce-page #content table.cart td.actions .coupon::before,.woocommerce-page table.cart td.actions .coupon::after,.woocommerce-page table.cart td.actions .coupon::before{
+    content:' ';display:table
+}
+.woocommerce #content table.cart td.actions .coupon::after,.woocommerce table.cart td.actions .coupon::after,.woocommerce-page #content table.cart td.actions .coupon::after,.woocommerce-page table.cart td.actions .coupon::after{
+    clear:both
+}
+.woocommerce #content table.cart td.actions .coupon .button,.woocommerce #content table.cart td.actions .coupon .input-text,.woocommerce #content table.cart td.actions .coupon input,.woocommerce table.cart td.actions .coupon .button,.woocommerce table.cart td.actions .coupon .input-text,.woocommerce table.cart td.actions .coupon input,.woocommerce-page #content table.cart td.actions .coupon .button,.woocommerce-page #content table.cart td.actions .coupon .input-text,.woocommerce-page #content table.cart td.actions .coupon input,.woocommerce-page table.cart td.actions .coupon .button,.woocommerce-page table.cart td.actions .coupon .input-text,.woocommerce-page table.cart td.actions .coupon input{
+    width:48%;box-sizing:border-box
+}
+.woocommerce #content table.cart td.actions .coupon .button.alt,.woocommerce #content table.cart td.actions .coupon .input-text+.button,.woocommerce table.cart td.actions .coupon .button.alt,.woocommerce table.cart td.actions .coupon .input-text+.button,.woocommerce-page #content table.cart td.actions .coupon .button.alt,.woocommerce-page #content table.cart td.actions .coupon .input-text+.button,.woocommerce-page table.cart td.actions .coupon .button.alt,.woocommerce-page table.cart td.actions .coupon .input-text+.button{
+    float:right
+}
+.woocommerce #content table.cart td.actions .button,.woocommerce table.cart td.actions .button,.woocommerce-page #content table.cart td.actions .button,.woocommerce-page table.cart td.actions .button{
+    display:block;width:100%
+}
+.woocommerce .cart-collaterals .cart_totals,.woocommerce .cart-collaterals .cross-sells,.woocommerce .cart-collaterals .shipping_calculator,.woocommerce-page .cart-collaterals .cart_totals,.woocommerce-page .cart-collaterals .cross-sells,.woocommerce-page .cart-collaterals .shipping_calculator{
+    width:100%;float:none;text-align:left
+}
+.woocommerce-page.woocommerce-checkout form.login .form-row,.woocommerce.woocommerce-checkout form.login .form-row{
+    width:100%;float:none
+}
+.woocommerce #payment .terms,.woocommerce-page #payment .terms{
+    text-align:left;padding:0
+}
+.woocommerce #payment #place_order,.woocommerce-page #payment #place_order{
+    float:none;width:100%;box-sizing:border-box;margin-bottom:1em
+}
+.woocommerce .lost_reset_password .form-row-first,.woocommerce .lost_reset_password .form-row-last,.woocommerce-page .lost_reset_password .form-row-first,.woocommerce-page .lost_reset_password .form-row-last{
+    width:100%;float:none;margin-right:0
+}
+.woocommerce-account .woocommerce-MyAccount-content,.woocommerce-account .woocommerce-MyAccount-navigation{
+    float:none;width:100%
+}
+.single-product .twentythirteen .panel{
+    padding-left:20px!important;padding-right:20px!important
+}
+
+/* CHECKOUT */
+.woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper p span, .woocommerce-shipping-fields .woocommerce-shipping-fields__field-wrapper p span{
+    width: 100%;
+}
+.woocommerce-billing-fields input, .woocommerce-billing-fields span .select2-selection, .select2-dropdown{
+    background-color: #00FC00 !important;
+    color: #ffffff;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
+.woocommerce-shipping-fields input, .woocommerce-shipping-fields span .select2-selection, .select2-dropdown{
+    background-color: #00FC00 !important;
+    color: #ffffff;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
+.woocommerce-shipping-fields h3:first-child input{
+    display: none !important;
+}
+.woocommerce-checkout-payment{
+    background-color: #ffffff !important;
+}
+.woocommerce-checkout-payment .woocommerce-privacy-policy-text p, .woocommerce-checkout-payment .woocommerce-privacy-policy-text p a{
+    color: #000 !important;
+}
+.payment_box{
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+.wc_payment_method label{
+    color: #000;
+    width: auto;
+}
+.check.detail-about form, .woocommerce-cart .detail-about{
+    display: flex;
+    width: 100%;
+    font-size: 1.7vw;
+}
+.woocommerce-cart .detail-about h2{
+    font-size: 2.2vw;
+}
+.woocommerce-checkout .detail-about h3{
+    font-size: 2.2vw;
+}
+.check.detail-about form .column-artists{
+    overflow-y: scroll;
+}
+.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea{
+    padding: 8px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    font-size: 17px;
+}
+.payment_method_custom #custom_input label{
+    color: #ffffff;
+    margin: 0 9px;
+}
+
+/* THANKS */
+.woocommerce-order{
+    background-color: #000000;
+}
+.woocommerce-column--shipping-address{
+    float: right;
+}
+.woocommerce-column--billing-address{
+    float: left;
+}
+.woocommerce-order{
+    overflow-y: scroll;
+}
+
+/* MEDIA QUERY */
+@media (max-width: 767px) {
+    /* GENERAL */
+    iframe{
+        max-height: 33vh;
+        max-height: calc(var(--vh, 1vh) * 33);
+    }
+    .column-artists .title-section.back{
+        font-size: 4.7vw !important;
+    }
+    /* HEADER */
+    nav div.logo{
+        border: 0;
+    }
+    nav div.logo img{
+        width: 49px;
+        height: auto;
+    }
+    nav{
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    span.other-type{
+        font-size: 11.7vw;
+    }
+    .reds{
+        z-index: 2;
+        left: auto;
+        position: relative;
+        width: 100%;
+    }
+    .icon{
+        left: auto;
+    }
+    .cont-rrss {
+        float: right;
+        display: none;
+        margin-top: 0;
+        width: 50%;
+        text-align: center;
+        justify-content: center;
+    }
+    .cont-rrss img.rrss {
+        height: auto;
+        width: 3vh;
+        padding: 0%;
+        object-fit: cover;
+    }
+    /* HOME */
+    .home .col-6.left{
+        display: none;
+    }
+    .home .resumen img{
+        width: 100%;
+        max-height: calc(var(--vh, 1vh) * 60);
+        object-fit: cover;
+    }
+    .home .resumen{
+        border-left: 2.3px solid #00FC00;
+        border-right: 2.3px solid #00FC00;
+        border-bottom: 2.3px solid #00FC00;
+    }
+    .home .resumen .content p.name, .home .resumen .content p.date{
+        font-size: 4.7vw;
+    }
+    .home .resumen .content p.artist{
+        font-size: 4vw;
+    }
+    .home .resumen .detail{
+        justify-content: flex-start;
+    }
+    .bg-full-container.home{
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .home .resumen .content{
+        height: calc(var(--vh, 1vh) * 80);
+        margin-bottom: calc(var(--vh, 1vh) * 10);
+    }
+    .home .resumen .next{
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .home .resumen .detail{
+        height: calc(var(--vh, 1vh) * 16);
+    }
+    .home.web{
+        display: none !important;
+    }
+    .home.mobile{
+        display: block !important;
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .home .resumen .next{
+        height: calc(var(--vh, 1vh) * 10);
+        position: fixed;
+    }
+    .home.detail-artist.mobile .carousel-item p{
+        bottom: 2.8vh;
+    }
+    /* MENU */
+    .band-menu{
+        width: 100% !important;
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .band-menu .text-menu{
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .flex-item {
+        font-size: 11.7vw;
+    } 
+    /* ARTIST */
+    .page-artists .col-6.right{
+        display: none !important;
+    }
+    .page-artists.bg-full-container{
+        height: calc(var(--vh, 1vh) * 90);
+        border-left: 2.3px solid #00FC00;
+    }
+    .page-artists .column-artists .title-section{
+        font-size: 11.7vw;
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .page-artists .column-artists .list-artists .artists{
+        font-size: 4.7vw;
+    }
+    .page-artists .column-artists .list-artists{
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .page-artists .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+    /* PAGE ARTIST */
+    .detail-artist.web{
+        display: none !important;
+    }
+    .detail-artist.mobile{
+        display: block !important;
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .detail-artist .resumen .next{
+        height: calc(var(--vh, 1vh) * 10);
+        position: fixed;
+        width: 100% !important;
+    }
+    .detail-artist .carousel-item p{
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        font-size: 3.1vw;
+    }
+    .detail-artist .column-artists .title-section{
+        height: calc(var(--vh, 1vh) * 10);
+        font-size: 11.7vw;
+    }
+    .detail-artist .resumen .content{
+        height: 40vh;
+        height: calc(var(--vh, 1vh) * 40);
+        margin-bottom: 0;
+    }
+    .detail-artist .resumen{
+        border-left: 2.3px solid #00FC00;
+        border-bottom: 2.3px solid #00FC00;
+    }
+    .detail-artist .resumen img{
+        max-height: 33vh;
+        max-height: calc(var(--vh, 1vh) * 33);
+        max-width: 43vh;
+    }
+    .detail-artist .description-artist {
+        height: 30vh;
+        height: calc(var(--vh, 1vh) * 30);
+        overflow-y: initial;
+    }
+    .detail-artist .description-artist p{
+        font-size: 4.7vw;
+    }
+    .detail-artist .description-artist p.web{
+        font-size: 3.1vw;
+    }
+    .detail-artist .resumen .next .col-10 p{
+        font-size: 3.1vw;
+    }
+    .detail-artist .carousel{
+        overflow-y: scroll;
+    }
+    .detail-artists .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+    /* EXHIBITIONS */
+    .page-exhibitions .col-6.right{
+        display: none !important;
+    }
+    .page-exhibitions.bg-full-container{
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .page-exhibitions .column-artists .title-section{
+        font-size: 11.7vw;
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .page-exhibitions .column-artists .list-artists .artists{
+        font-size: 3.7vw;
+    }
+    .page-exhibitions .column-artists .list-artists{
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .page-exhibitions .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+    /* PAGE EXHIBITIONS */
+    .detail-exhibitions.web{
+        display: none !important;
+    }
+    .detail-exhibitions.mobile{
+        display: block !important;
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .detail-exhibitions .resumen .next{
+        height: calc(var(--vh, 1vh) * 10);
+        position: fixed;
+        width: 100% !important;
+    }
+    .detail-exhibitions .carousel-item p{
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        font-size: 3.1vw;
+    }
+    .detail-exhibitions .resumen{
+        border-left: 2.3px solid #00FC00;
+        border-bottom: 2.3px solid #00FC00;
+    }
+    .detail-exhibitions .column-artists .title-section{
+        height: calc(var(--vh, 1vh) * 10);
+        font-size: 11.7vw;
+    }
+    .detail-exhibitions .resumen .content{
+        height: 40vh;
+        height: calc(var(--vh, 1vh) * 40);
+        margin-bottom: 0;
+    }
+    .detail-exhibitions .resumen img{
+        max-height: 33vh;
+        max-height: calc(var(--vh, 1vh) * 33);
+        max-width: 43vh;
+    }
+    .detail-exhibitions .description-artist {
+        height: 30vh;
+        height: calc(var(--vh, 1vh) * 30);
+        overflow-y: initial;
+    }
+    .detail-exhibitions .description-artist p{
+        font-size: 4.7vw;
+    }
+    .detail-exhibitions .description-artist p.web{
+        font-size: 3.1vw;
+    }
+    .detail-exhibitions .resumen .next .col-10 p{
+        font-size: 3.1vw;
+    }
+    .detail-exhibitions .carousel{
+        overflow-y: scroll;
+    }
+    .detail-exhibitions .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+
+    /* COMMUNITY */
+    .page-community .col-6.right{
+        display: none !important;
+    }
+    .page-community.bg-full-container{
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .page-community .column-artists .title-section{
+        font-size: 11.7vw;
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .page-community .column-artists .list-artists .artists{
+        font-size: 3.7vw;
+    }
+    .page-community .column-artists .list-artists{
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .page-community .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+    /* PAGE COMMUNITY */
+    .detail-community.web{
+        display: none !important;
+    }
+    .detail-community.mobile{
+        display: block !important;
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .detail-community .resumen .next{
+        height: calc(var(--vh, 1vh) * 10);
+        position: fixed;
+        width: 100% !important;
+    }
+    .detail-community .carousel-item p{
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        font-size: 3.1vw;
+    }
+    .detail-community .column-artists .title-section{
+        height: calc(var(--vh, 1vh) * 10);
+        font-size: 11.7vw;
+    }
+    .detail-community .resumen .content{
+        height: 40vh;
+        height: calc(var(--vh, 1vh) * 40);
+        margin-bottom: 0;
+    }
+    .detail-community .resumen{
+        border-left: 2.3px solid #00FC00;
+        border-bottom: 2.3px solid #00FC00;
+    }
+    .detail-community .resumen img{
+        max-height: 33vh;
+        max-height: calc(var(--vh, 1vh) * 33);
+        max-width: 43vh;
+    }
+    .detail-community .description-artist {
+        height: 30vh;
+        height: calc(var(--vh, 1vh) * 30);
+        overflow-y: initial;
+    }
+    .detail-community .description-artist p{
+        font-size: 4.7vw;
+    }
+    .detail-community .description-artist p.web{
+        font-size: 3.1vw;
+    }
+    .detail-community .resumen .next .col-10 p{
+        font-size: 3.1vw;
+    }
+    .detail-community .carousel{
+        overflow-y: scroll;
+    }
+    .detail-community .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+    
+    /* PROJECTS */
+    .page-projects .col-6.right{
+        display: none !important;
+    }
+    .page-projects.bg-full-container{
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .page-projects .column-artists .title-section{
+        font-size: 11.7vw;
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .page-projects .column-artists .list-artists .artists{
+        font-size: 4.7vw;
+    }
+    .page-projects .column-artists .list-artists{
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .page-projects .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+
+    /* PAGE PROJECTS */
+    .detail-projects.web{
+        display: none !important;
+    }
+    .detail-projects.mobile{
+        display: block !important;
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .detail-projects .resumen .next{
+        height: calc(var(--vh, 1vh) * 10);
+        position: fixed;
+        width: 100% !important;
+    }
+    .detail-projects .carousel-item p{
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        font-size: 3.1vw;
+    }
+    .detail-projects .column-artists .title-section{
+        height: calc(var(--vh, 1vh) * 10);
+        font-size: 11.7vw;
+    }
+    .detail-projects .resumen .content{
+        height: 40vh;
+        height: calc(var(--vh, 1vh) * 40);
+        margin-bottom: 0;
+    }
+    .detail-projects .resumen img{
+        max-height: 33vh;
+        max-height: calc(var(--vh, 1vh) * 33);
+        max-width: 43vh;
+    }
+    .detail-projects .description-artist {
+        height: 30vh;
+        height: calc(var(--vh, 1vh) * 30);
+        overflow-y: initial;
+    }
+    .detail-projects .description-artist p{
+        font-size: 4.7vw;
+    }
+    .detail-projects .description-artist p.web{
+        font-size: 3.1vw;
+    }
+    .detail-projects .resumen .next .col-10 p{
+        font-size: 3.1vw;
+    }
+    .detail-projects .carousel{
+        overflow-y: scroll;
+    }
+    .detail-projects .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+
+    /* WORKSHOP */
+    .bg-full-container.page-workshop{
+        flex-direction: column;
+    }
+    .page-workshop.web{
+        display: none !important;
+    }
+    .page-workshop.mobile{
+        display: block !important;
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .page-workshop.mobile .resumen{
+        overflow-y: scroll;
+        height: calc(var(--vh, 1vh) * 80) !important;
+    }
+    .page-workshop .column-artists{
+        height: auto !important;
+    }
+    .page-workshop .column-artists .title-section{
+        font-size: 11.7vw;
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .page-workshop .resumen img{
+        height: auto;
+        width: 100%;
+    }
+    .page-workshop .resumen .img-workshop-mob{
+        height: auto;
+        display: flex;
+        justify-content: center;
+    }
+    .page-workshop .resumen .img-workshop-mob .text-detail-workshop{
+        text-align: left;
+    }
+    .page-workshop .resumen .img-workshop-mob .text-detail-workshop p{
+        margin: 0;
+    }
+    .page-workshop{
+        border-left: 2.3px solid #00FC00;
+    }
+    .page-workshop .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+
+    /* PAGE WORKSHOP */
+    .detail-workshop.web{
+        display: none !important;
+    }
+    .detail-workshop.mobile{
+        display: block !important;
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .detail-workshop .resumen .next{
+        height: calc(var(--vh, 1vh) * 10);
+        position: fixed;
+    }
+    .detail-workshop .column-artists .title-section{
+        height: calc(var(--vh, 1vh) * 10);
+        font-size: 11.7vw;
+    }
+    .detail-workshop .resumen .content{
+        height: 40vh;
+        height: calc(var(--vh, 1vh) * 40);
+        margin-bottom: 0;
+    }
+    .detail-workshop .resumen img{
+        max-height: 33vh;
+        max-height: calc(var(--vh, 1vh) * 33);
+        max-width: 43vh;
+    }
+    .detail-workshop .description-artist {
+        padding-top: 1rem;
+        height: 30vh;
+        height: calc(var(--vh, 1vh) * 30);
+        overflow-y: initial;
+    }
+    .detail-workshop .description-artist p{
+        font-size: 4.7vw;
+    }
+    .detail-workshop .description-artist p.web{
+        font-size: 3.1vw;
+    }
+    .detail-workshop .resumen .next .col-10 p{
+        font-size: 3.1vw;
+    }
+    .detail-workshop .resumen .next .col-6 a{
+        font-size: 5.7vw;
+    }
+    .detail-workshop .resumen img{
+        height: auto;
+        object-fit: contain;
+        height: calc(var(--vh, 1vh) * 35);
+    }
+    .detail-workshop .cont-info{
+        overflow-y: scroll;
+    }
+    .detail-workshop{
+        border-left: 2.3px solid #00FC00;
+        border-bottom: 2.3px solid #00FC00;
+    }
+    .detail-workshop .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+    .detail-workshop .carousel-control-next, .detail-workshop .carousel-control-prev{
+        width: 10%;
+    }
+    
+
+    /* ARCHIVE */
+    .page-archive .col-6.right{
+        display: none !important;
+    }
+    .page-archive.bg-full-container{
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .page-archive .column-artists .title-section{
+        font-size: 11.7vw;
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .page-archive .column-artists .list-artists .artists{
+        font-size: 3.7vw;
+    }
+    .page-archive .column-artists .list-artists{
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .page-archive .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+
+    /* PAGE COMMUNITY */
+    .detail-archive.web{
+        display: none !important;
+    }
+    .detail-archive.mobile{
+        display: block !important;
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .detail-archive .resumen .next{
+        height: calc(var(--vh, 1vh) * 10);
+        position: fixed;
+    }
+    .detail-archive .column-artists .title-section{
+        height: calc(var(--vh, 1vh) * 10);
+        font-size: 11.7vw;
+    }
+    .detail-archive .resumen .content{
+        height: 40vh;
+        height: calc(var(--vh, 1vh) * 40);
+        margin-bottom: 0;
+    }
+    .detail-archive .resumen img{
+        max-height: 33vh;
+        max-height: calc(var(--vh, 1vh) * 33);
+        max-width: 43vh;
+    }
+    .detail-archive .description-artist {
+        height: 30vh;
+        height: calc(var(--vh, 1vh) * 30);
+        overflow-y: initial;
+    }
+    .detail-archive .description-artist p{
+        font-size: 4.7vw;
+    }
+    .detail-archive .description-artist p.web{
+        font-size: 3.1vw;
+    }
+    .detail-archive .resumen .next .col-10 p{
+        font-size: 3.1vw;
+    }
+    .detail-archive .carousel{
+        overflow-y: scroll;
+    }
+    .detail-archive .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+
+    /* ARCHIVE YEAR */
+    .page-archive-year .col-6.right{
+        display: none !important;
+    }
+    .page-archive-year.bg-full-container{
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .page-archive-year .column-artists .title-section{
+        font-size: 11.7vw;
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .page-archive-year .column-artists .list-artists .artists{
+        font-size: 3.7vw;
+    }
+    .page-archive-year .column-artists .list-artists{
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .page-archive-year .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+
+    /* SHOP */
+    .bg-full-container.page-shop{
+        flex-direction: column;
+    }
+    .page-shop.web{
+        display: none !important;
+    }
+    .page-shop.mobile{
+        display: block !important;
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .page-shop.mobile .resumen{
+        overflow-y: scroll;
+        height: calc(var(--vh, 1vh) * 80) !important;
+    }
+    .page-shop .column-artists{
+        height: auto !important;
+    }
+    .page-shop .column-artists .title-section{
+        font-size: 11.7vw;
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .page-shop .resumen img{
+        height: auto;
+        width: 100%;
+    }
+    .page-shop .resumen .img-workshop-mob{
+        height: auto;
+        display: flex;
+        justify-content: center;
+    }
+    .page-shop .resumen .img-workshop-mob a{
+        width: 100%;
+        padding: 5% 0;
+    }
+    .page-shop .resumen .img-workshop-mob .text-detail-shop{
+        text-align: left;
+    }
+    .page-shop .resumen .img-workshop-mob .text-detail-shop p{
+        margin: 0;
+    }
+    .page-shop{
+        border-left: 2.3px solid #00FC00;
+    }
+    .page-shop .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+
+    /* PAGE SHOP */
+    .detail-shop.web{
+        display: none !important;
+    }
+    .detail-shop.mobile{
+        display: block !important;
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .detail-shop .resumen .next{
+        height: calc(var(--vh, 1vh) * 10);
+        position: fixed;
+    }
+    .detail-shop .column-artists .title-section{
+        height: calc(var(--vh, 1vh) * 10);
+        font-size: 11.7vw;
+    }
+    .detail-shop .resumen .content{
+        height: 40vh;
+        height: calc(var(--vh, 1vh) * 40);
+        margin-bottom: 0;
+    }
+    .detail-shop .resumen img{
+        max-height: 33vh;
+        max-height: calc(var(--vh, 1vh) * 33);
+        max-width: 43vh;
+    }
+    .detail-shop .description-artist {
+        padding-top: 1rem;
+        height: 30vh;
+        height: calc(var(--vh, 1vh) * 30);
+        overflow-y: initial;
+    }
+    .detail-shop .description-artist p{
+        font-size: 4.7vw;
+    }
+    .detail-shop .description-artist p.web{
+        font-size: 3.1vw;
+    }
+    .detail-shop .resumen .next .col-10 p{
+        font-size: 3.1vw;
+    }
+    .detail-shop .resumen .next .col-6 a{
+        font-size: 5.7vw;
+    }
+    .detail-shop .resumen img{
+        height: auto;
+        object-fit: contain;
+        height: calc(var(--vh, 1vh) * 35);
+    }
+    .detail-shop .cont-info{
+        overflow-y: scroll;
+    }
+    .detail-shop .description-artist p.price{
+        font-size: 3.1vw;
+    }
+    .detail-shop .resumen.column-artists{
+        border-left: 2.3px solid #00FC00;
+        border-bottom: 2.3px solid #00FC00;
+    }
+    .detail-shop .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+
+    /* DONATIONS */
+    .bg-full-container.page-donations{
+        flex-direction: column;
+    }
+    .page-donations.web{
+        display: none !important;
+    }
+    .page-donations.mobile{
+        display: block !important;
+        height: calc(var(--vh, 1vh) * 90);
+    }
+    .page-donations.mobile .resumen{
+        overflow-y: scroll;
+        height: calc(var(--vh, 1vh) * 80) !important;
+    }
+    .page-donations .column-artists{
+        height: auto !important;
+    }
+    .page-donations .column-artists .title-section{
+        font-size: 11.7vw;
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .page-donations .resumen img{
+        height: auto;
+        width: 100%;
+    }
+    .page-donations .resumen .img-workshop-mob{
+        height: auto;
+        display: flex;
+        justify-content: center;
+    }
+    .page-donations .resumen .img-workshop-mob .text-detail-donations{
+        text-align: left;
+    }
+    .page-donations .resumen .img-workshop-mob .text-detail-donations p{
+        margin: 0;
+    }
+    .page-donations{
+        border-left: 2.3px solid #00FC00;
+    }
+    .page-donations .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+
+    /* PAGE DONATIONS */
+    .detail-donations.web{
+        display: none !important;
+    }
+    .detail-donations.mobile{
+        display: block !important;
+        height: 100%;
+    }
+    .detail-donations .resumen .next{
+        height: calc(var(--vh, 1vh) * 10);
+        position: fixed;
+    }
+    .detail-donations .column-artists .title-section{
+        height: calc(var(--vh, 1vh) * 10);
+        font-size: 11.7vw;
+    }
+    .detail-donations .resumen .content{
+        height: 40vh;
+        height: calc(var(--vh, 1vh) * 40);
+        margin-bottom: 0;
+    }
+    .detail-donations .resumen img{
+        max-height: 33vh;
+        max-height: calc(var(--vh, 1vh) * 33);
+        max-width: 43vh;
+    }
+    .detail-donations .description-artist {
+        padding-top: 1rem;
+        height: auto;
+        height: auto;
+        overflow-y: scroll;
+        margin: auto;
+    }
+    .detail-donations .description-artist p{
+        font-size: 4.7vw;
+        overflow-y: scroll;
+    }
+    .detail-donations .description-artist p.web{
+        font-size: 3.1vw;
+    }
+    .detail-donations .resumen .next .col-10 p{
+        font-size: 3.1vw;
+    }
+    .detail-donations .resumen .next .col-6 a{
+        font-size: 5.7vw;
+    }
+    .detail-donations .resumen img{
+        height: auto;
+        object-fit: contain;
+        height: calc(var(--vh, 1vh) * 35);
+    }
+    .detail-donations .cont-info{
+        overflow-y: scroll;
+    }
+    .detail-donations .description-artist p.price{
+        font-size: 3.1vw;
+    }
+    .detail-donations .resumen.column-artists{
+        border-left: 2.3px solid #00FC00;
+        border-bottom: 2.3px solid #00FC00;
+    }
+    .detail-donations .column-artists .title-section span.other-type{
+        font-size: 11.7vw;
+    }
+    
+    /* ABOUT */
+    .bg-full-container.detail-about{
+        flex-direction: column;
+        overflow-y: scroll;
+        height: 100%;
+    }
+    .detail-about .column-artists .title-section{
+        font-size: 11.7vw;
+        height: calc(var(--vh, 1vh) * 10);
+    }
+    .about .description-about{
+        overflow-y: hidden;
+        height: 100%;
+    }
+    .contact .description-about{
+        height: auto;
+    }
+    .detail-about .about{
+        border-right: 0;
+        border-bottom: 2.3px solid #00FC00;
+        border-left: 0;
+    }
+    .detail-about .column-artists.about .flex-container, .detail-about .column-artists.contact .flex-container{
+        border-right: 2.3px solid #00FC00;
+        border-left: 2.3px solid #00FC00;
+    }
+    .description-about p{
+        font-size: 4.7vw;
+        /* overflow-y: scroll; */
+    }
+
+    /* MODAL */
+    .carousel-control-prev {
+        left: 0;
+        height: 80%;
+    }
+    .carousel-control-next {
+        right: 0;
+        height: 80%;
+    }
+    .carousel-control-next.detail, .carousel-control-prev.detail {
+        height: 100%;
+    }
+    .carousel-control-prev.mod, .carousel-control-next.mod {
+        top: 16%;
+    }
+    .modal-dialog {
+        height: calc(var(--vh, 1vh) * 100);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 .5rem;
+    }
+
+    /* PREVIEW */
+    .bg-full-container.preview{
+        height: calc(var(--vh, 1vh) * 100);
+        overflow-y: hidden;
+    }
+    .bg-full-container.preview .text-preview {
+        font-size: 5.5vw;
+    }
+    .bg-full-container.preview .text-preview {
+        display: block !important;
+    }
+    .bg-full-container.preview .text-preview {
+        font-family: 'ATApocItalic';
+        z-index: 99999;
+        font-size: 5.4vw;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20%;
+        left: 36%;
+        bottom: 8%;
+        color: #00FC00 !important;
+    }
+
+    /* CHECKOUT */
+    .detail-about form {
+        flex-direction: column;
+    }
+    .check.detail-about form, .woocommerce-cart .detail-about{
+        font-size: 4.7vw;
+    }
+    .check.detail-about form, .woocommerce-cart .detail-about h2{
+        font-size: 5.2vw;
+    }
+}
+
+.payment_method_stripe .payment_box label{
+    color: white !important;
+}
+#add_payment_method #payment ul.payment_methods .stripe-card-group, .woocommerce-checkout #payment ul.payment_methods .stripe-card-group, .wc-stripe-elements-field, .wc-stripe-iban-element-field{
+    width: 100%;
+}
