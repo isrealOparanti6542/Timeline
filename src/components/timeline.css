@@ -170,11 +170,12 @@ from the library
  }
  input[type='date'] {
    width: 8rem;
-   height: 18px;
+   height: 17.5px !important;
    padding: 1px;
    border: 1.5px solid lightgray;
    border-radius: 3px; 
    /* -webkit-appearance: none; */
+   outline: none;
  }
  #indicate{
    font-size: 11px;
@@ -201,12 +202,13 @@ from the library
  }
  #publish{
    color: #fff;
-   padding: 2px;
+   padding: 3px;
    font-size: 8.5px;
    letter-spacing: 1px;
    border-radius: 2px;
    background-color: lightseagreen;
    border: none;
+   cursor: pointer;
  }
  ::-webkit-input-placeholder{
    font-size: 10px;

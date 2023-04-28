@@ -108,7 +108,7 @@ function TimelineApp() {
   
 // const [viewportStart, setViewportStart] = useState(new Date());
 // const [viewportEnd, setViewportEnd] = useState(addDays(new Date(), 7));
-  const [viewportStart, setViewportStart] = useState(new Date(date.getFullYear(), date.getMonth(), 1).getTime());
+  const [viewportStart, setViewportStart] = useState(new Date(date.getFullYear(), date.getMonth(), 2).getTime());
   const [viewportEnd, setViewportEnd] = useState(new Date(date.getFullYear(), date.getMonth(), 6).getTime());
 
 // const handleBackwardClick = () => {
@@ -145,24 +145,24 @@ function TimelineApp() {
 //   const [viewportEnd, setViewportEnd] = useState(new Date(date.getFullYear(), date.getMonth(), 6).getTime());
 
 
-//   const handleBackwardClick = () => {
-//   const newStart = new Date(viewportStart);
-//   const newEnd = new Date(viewportEnd);
-//   newStart.setDate(newStart.getDate() - 1);
-//   newEnd.setDate(newEnd.getDate() - 1);
-//   console.log(newStart.getTime())
-//   setViewportStart(newStart.getTime());
-//   setViewportEnd(newEnd.getTime());
-// };
-//  const handleForwardClick = () => {
-//   const newStart = new Date(viewportStart);
-//   const newEnd = new Date(viewportEnd);
-//   newStart.setDate(newStart.getDate() + 1);
-//   newEnd.setDate(newEnd.getDate() + 1);
-//   setViewportStart(newStart.getTime());
-//   setViewportEnd(newEnd.getTime());
-// };
-// console.log(viewportStart)
+  const handleBackwardClick = () => {
+  const newStart = new Date(viewportStart);
+  const newEnd = new Date(viewportEnd);
+  newStart.setDate(newStart.getDate() - 1);
+  newEnd.setDate(newEnd.getDate() - 1);
+  console.log(newStart.getTime())
+  setViewportStart(newStart.getTime());
+  setViewportEnd(newEnd.getTime());
+};
+ const handleForwardClick = () => {
+  const newStart = new Date(viewportStart);
+  const newEnd = new Date(viewportEnd);
+  newStart.setDate(newStart.getDate() + 1);
+  newEnd.setDate(newEnd.getDate() + 1);
+  setViewportStart(newStart.getTime());
+  setViewportEnd(newEnd.getTime());
+};
+console.log(viewportStart)
 
 
 
@@ -204,12 +204,12 @@ const [currentMonthEnd, setCurrentMonthEnd] = useState(new Date(date.getFullYear
    setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1).getTime())
    setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 6).getTime())
  }
-//  const now = () =>{
-//   setViewportStart(new Date(new Date().getFullYear(),new Date().getMonth(), new Date().getDate()).getTime())
-//   let end = new Date(new Date().getFullYear(),new Date().getMonth(), new Date().getDate()).toISOString().split('-')[1].split('')[1]
-//   setViewportEnd(new Date(date.getFullYear(), date.getMonth(), parseInt(end + 5)).getTime())
+ const now = () =>{
+  setViewportStart(new Date(new Date().getFullYear(),new Date().getMonth(), new Date().getDate()).getTime())
+  let end = new Date(new Date().getFullYear(),new Date().getMonth(), new Date().getDate()).toISOString().split('-')[1].split('')[1]
+  setViewportEnd(new Date(date.getFullYear(), date.getMonth(), parseInt(end + 5)).getTime())
   
-// }
+}
 
 // const [zoom, setZoom] = useState(1);
 
@@ -250,36 +250,34 @@ const handleModalClose = () => {
       setViewportEnd(newEnd);
     }
   };
+
+  const handleTimeChange = (visibleTimeStart, visibleTimeEnd, updateScrollCanvas) => {
+    setViewportStart(visibleTimeStart);
+    setViewportEnd(visibleTimeEnd);
+  };
  return (
     <div> 
         <div className="Flist">
         <div className="Fitem"> <span id="refresh" title="refresh timeline" onClick={h}> &#x1f5d8; </span></div>
         <div className="Fitem"><span id='indicate'>From</span></div>
-        <div className="Fitem"><input type="date" value={currentMonthStart}  onChange={handleDateChange}/></div>
+        <div className="Fitem"><input type="date" value={moment(viewportStart).format("YYYY-MM-DD")}  onChange={handleDateChange}/></div>
         <div className="Fitem"><span id="indicate">To</span></div>
-        <div className="Fitem"><input type="date" value={currentMonthEnd} onChange={handleDateChange1}/></div>
-        {/* <div className="Fitem now"><span className="left arrow" title="pan left" onClick={handleBackwardClick}>&#8592;</span><span id="indicate" title="display today" onClick={now}>NOW</span><span className="arrow right" title="pan right" onClick={handleForwardClick}>&#8594;</span></div> */}
-        <div className="Fitem zoom"><span className="arrow" title="zoom left" > &#x2212; </span><span className="arrow right" title="zoom right">&#x2B; </span></div>
-        <div className="Fitem"><button id='publish'>PUBLISH</button></div>
+        <div className="Fitem"><input type="date" value={moment(viewportEnd).format("YYYY-MM-DD")} onChange={handleDateChange1}/></div>
+        <div className="Fitem now"><span className="left arrow" title="pan left" onClick={handleBackwardClick}>&#8592;</span><span id="indicate" title="display today" onClick={now}>NOW</span><span className="arrow right" title="pan right" onClick={handleForwardClick}>&#8594;</span></div>
+        {/* <div className="Fitem zoom"><span className="arrow" title="zoom left" > &#x2212; </span><span className="arrow right" title="zoom right">&#x2B; </span></div> */}
+        <div className="Fitem"><button className='btn-transparent' id='publish'>PUBLISH</button></div>
         <div className="Fitem"><input type="text" placeholder="time-zone"/></div>
   </div>
-  <div className="Fitem">
-        <input type="date" value={moment(viewportStart).format("YYYY-MM-DD")} onChange={handleDateChange} />
-      </div>
-      <div className="Fitem">
-        <input type="date" value={moment(viewportEnd).format("YYYY-MM-DD")} onChange={handleDateChange1} />
-      </div>
+       
         <Timeline      
-            // zoomOnScroll
-            // onZoom={handleZoom}
-            // onBoundsChange={handleBoundsChange}
+            
             groups={groups} //the above groups
             items={items} //same the above defined items
             defaultTimeStart={addDays(date, -3)}
-        defaultTimeEnd={addDays(date, 10)}
-        visibleTimeStart={viewportStart}
-        visibleTimeEnd={viewportEnd}
-      
+            defaultTimeEnd={addDays(date, 10)}
+            visibleTimeStart={viewportStart}
+            visibleTimeEnd={viewportEnd}
+            onTimeChange={handleTimeChange}
             // defaultTimeStart={new Date(date.getFullYear(), date.getMonth(), 1)}
             // defaultTimeEnd={new Date(date.getFullYear(), date.getMonth(), 6)}          
             // visibleTimeStart={viewportStart}
