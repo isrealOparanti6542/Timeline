@@ -5,20 +5,22 @@ table {
     border-bottom: 2px solid lightgray;
     border-collapse: collapse;
     background-color: transparent;
+    
   }
   
   table th,
   table td {
     padding: 5px;
-    
+    /* text-transform: uppercase !important; */
   }
   
   table th {
     font-size: 0.8rem;
     font-weight: 100;
     font-family: tahoma;
-    text-transform: capitalize;
-    background-color: rgb(223, 220, 220);
+    text-transform: uppercase !important;
+    background-color: rgb(233, 231, 231);
+    border-radius: 2px;
   }
   
   table td input[type="text"] {

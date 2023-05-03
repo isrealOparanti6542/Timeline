@@ -123,9 +123,16 @@ function Table() {
       <tbody>
         {rows.map((row, index) => (
           <tr key={index}>
-            <td>
-              <input type="text" value={row.dayShift} onChange={(e) => handleChange(e, index, 'dayShift')} style={{width: '16px'}}/>
-            </td>
+           <td>
+  <select value={row.dayShift} onChange={(e) => handleChange(e, index, 'dayShift')} style={{width: '60px'}}>
+    <option value="+0">+0</option>
+    {Array.from({length: 31}).map((_, i) => (
+      <option key={i+1} value={`+${i+1}`}>{`+${i+1}`}</option>
+    ))}
+  </select>
+</td>
+
+
             <td>
               <input type="text" value={row.flightNo} onChange={(e) => handleChange(e, index, 'flightNo')} style={{width: '16px'}}/>
             </td>
@@ -139,8 +146,20 @@ function Table() {
               <input type="text" value={row.ades} onChange={(e) => handleChange(e, index, 'ades')} style={{width: '16px'}}/>
             </td>
             <td>
-              <input type="text" value={row.sta} onChange={(e) => handleChange(e, index, 'sta')} style={{width: '16px'}}/>
-            </td>
+  <div style={{ display: 'flex', alignItems: 'center' }}>
+    <input
+      type="text"
+      value={row.sta}
+      onChange={(e) => handleChange(e, index, 'sta')}
+      onClick={(e) => {
+        e.target.value = '00.00';
+        e.target.setSelectionRange(0, 0);
+      }}
+      style={{ width: '60px', marginRight: '4px' }}
+    />
+    <div style={{ fontSize: '16px', fontWeight: 'bold' }}></div>
+  </div>
+</td>
             <td>
               <input type="text" value={row.altn} onChange={(e) => handleChange(e, index, 'altn')} style={{width: '16px'}}/>
             </td>
