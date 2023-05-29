@@ -1,15 +1,15 @@
-import React from 'react';
-import './modal.css';
+import React from 'react';  
+import './full.css';
 import Table from '../Table/table';
 
-const Modal = ({ onClose }) => {
+const ModalFull = ({ onClose }) => {
   return (
     <div className="modal">
       <div className="modal-body">
       <div className="modal-header">
         <button className="button modal-close" onClick={onClose}>
         &#10006;
-        </button>
+        </button>   
       </div>
       <div className='new-schedule'><span>New schedule</span></div>
       <div class="modal-row">
@@ -116,4 +116,4 @@ const Modal = ({ onClose }) => {
   );
 };
 
-export default Modal;
+export default ModalFull;
