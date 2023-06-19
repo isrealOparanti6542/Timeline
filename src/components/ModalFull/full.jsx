@@ -107,7 +107,7 @@ const ModalFull = ({ onClose }) => {
   </div>
 </div>
 <Table/>
-<div style={{float: 'right'}}>
+<div style={{float: 'right', marginTop: "20px"}}>
     <button className="button" id="footB" onClick={onClose}>Add Schedule</button>
     <button className="button btn-transparent" id="footB" onClick={onClose} >cancel</button> 
 </div>

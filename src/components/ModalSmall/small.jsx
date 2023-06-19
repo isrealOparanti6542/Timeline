@@ -24,7 +24,7 @@ const ModalSmall = (props) => {
           </button>
         </div>
         <div className="new-schedule">
-          <span>Modify</span>
+          <span>Select</span>
         </div>
         <div className="modals-container">
         <div className="modal-content">

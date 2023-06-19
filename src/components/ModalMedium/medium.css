@@ -8,15 +8,15 @@
     background-color: rgba(107, 103, 103, 0.4);
     z-index: 99999;
   }
-  .new-schedule{
+  .new-schedule-modify{
     margin-top: -36px;
     width: 95%;
-    font-size: larger;
+    font-size: 1rem !important;
     color: lightseagreen;
     margin-bottom: 20px !important;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
-  .new-schedule span{
+  .new-schedule-modify span{
     text-align: left;
     margin: 2px 2px !important;
   }
@@ -93,6 +93,7 @@
   }
   
   label {
+    color: #000;
     font-family: tahoma;
     font-size: 0.7rem;
   }
@@ -183,5 +184,6 @@
   tbody tr td{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 13px;
+    color: #000;
   }
   

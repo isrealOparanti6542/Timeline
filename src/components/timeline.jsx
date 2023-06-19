@@ -72,44 +72,46 @@ const items = [
   }
       
 ]
-const timeSteps = {
+ var steps = 6
+const initialTimeSteps = {
   millisecond: 1,
   second: 1,
   minute: 1,
-  hour: 6, // set to 6 to match the desired time points
+  hour: steps,
   day: 1,
   month: 1,
   year: 1,
 };
-
    // moment().add(-75, 'hour') 
 
 function TimelineApp() {
-  const date = new Date()  
-  
+
+
+  const timelineRef = useRef(null);
+  const outsideClickRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  const date = new Date()   
   const addDays = (date, days) => {
     const result = new Date(date);
     result.setDate(result.getDate() + days);
     return result;
   };
   
-// const [viewportStart, setViewportStart] = useState(new Date());
-// const [viewportEnd, setViewportEnd] = useState(addDays(new Date(), 7));
-  const [viewportStart, setViewportStart] = useState(new Date(date.getFullYear(), date.getMonth(), 2).getTime());
+   const [viewportStart, setViewportStart] = useState(new Date(date.getFullYear(), date.getMonth(), 2).getTime());
   const [viewportEnd, setViewportEnd] = useState(new Date(date.getFullYear(), date.getMonth(), 7).getTime());
   const [newScheduleModalOpen, setNewScheduleModalOpen] = useState(false)
   const [modifyModalOpen, setModifyModalOpen] = useState(false)
   const [selectModalOpen, setselectModalOpen] = useState(false)
-   
+  const [timeSteps, setTimeSteps] = useState(initialTimeSteps);   
   const [selectedItem, setSelectedItem] = useState(null);
   const [buttonClicked, setButtonClicked] = useState(false);
-  const timelineRef = useRef(null);
-  const outsideClickRef = useRef(null);
-  const buttonRef = useRef(null);
- 
-const [selectedItems, setSelectedItems] = useState([]);
-const [selectedObjects, setSelectedObjects] = useState([]);
-const [shiftKeyPressed, setShiftKeyPressed] = useState(false);
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [selectedObjects, setSelectedObjects] = useState([]);
+  const [shiftKeyPressed, setShiftKeyPressed] = useState(false);  
+
+
+  
 function handleItemClick(itemId, shiftKeyPressed) {
   setSelectedItem(itemId);
   const selectedItem = items.find(item => item.id === itemId);
@@ -129,43 +131,15 @@ function handleItemClick(itemId, shiftKeyPressed) {
   });
 
   setSelectedItems(prevSelectedObjects => [...prevSelectedObjects, selectedItem])
+  console.log("Shift key pressed:", shiftKeyPressed);
 }
 
 
 const selected = shiftKeyPressed ? selectedObjects : selectedObjects[0];
   console.log(selectedObjects);
   console.log(selectedItems);
-  // console.log(selected);
-  // const [selectedItems, setSelectedItems] = useState([]);
-  // const [clickedItem, setClickedItem] = useState(null);
-  // const [selectedObject, setSelectedObject] = useState(null);
-  
-  // function handleItemClick(itemId) {
-  //   setSelectedItem(itemId);
-  //   const selectedItem = items.find(item => item.id === itemId);
-  //   setSelectedItems(prevSelectedItems => [...prevSelectedItems, itemId]);
-  //   setClickedItem(itemId);
-  //   setSelectedObject(selectedItem);
-  // }
-  
-  // const selected = selectedObject;
-  
-
-
-
-//   const [selectedItems, setSelectedItems] = useState([]);
-// const [clickedItem, setClickedItem] = useState(null);
-// const [selectedObjects, setSelectedObjects] = useState([]);
-
-// function handleItemClick(itemId) {
-//   const selectedItem = items.find(item => item.id === itemId);
-//   setSelectedItems(prevSelectedItems => [...prevSelectedItems, itemId]);
-//   setClickedItem(itemId);
-//   setSelectedObjects(prevSelectedObjects => [...prevSelectedObjects, selectedItem]);
-// }
-
-// const selected = selectedObjects[selectedObjects.length - 1];
-
+  console.log(shiftKeyPressed)
+   
 ///disable and enable button when item clicked///////
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -205,8 +179,6 @@ const selected = shiftKeyPressed ? selectedObjects : selectedObjects[0];
     // logic to delete selected item
   }
   
-
-
   const handleBackwardClick = () => {
   const newStart = new Date(viewportStart);
   const newEnd = new Date(viewportEnd);
@@ -216,6 +188,7 @@ const selected = shiftKeyPressed ? selectedObjects : selectedObjects[0];
   setViewportStart(newStart.getTime());
   setViewportEnd(newEnd.getTime());
 };
+
  const handleForwardClick = () => {
   const newStart = new Date(viewportStart);
   const newEnd = new Date(viewportEnd);
@@ -226,9 +199,6 @@ const selected = shiftKeyPressed ? selectedObjects : selectedObjects[0];
 };
 console.log(viewportStart)
  
-
-
-
   const h = () =>{
    setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1).getTime())
    setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 6).getTime())
@@ -247,7 +217,10 @@ const handleZoomOut = () => {
   newEnd.setTime(newEnd.getTime() - diff / 2);
   setViewportStart(newStart.getTime());
   setViewportEnd(newEnd.getTime());
+
+  setTimeSteps(prevTimeSteps => ({...prevTimeSteps, hour: steps}));// Increase the hour step
 };
+
 
 const handleZoomIn = () => {
   const newStart = new Date(viewportStart);
@@ -257,9 +230,18 @@ const handleZoomIn = () => {
   newEnd.setTime(newEnd.getTime() + diff / 2);
   setViewportStart(newStart.getTime());
   setViewportEnd(newEnd.getTime());
+
+   setTimeSteps(prevTimeSteps => ({
+      ...prevTimeSteps,
+      hour: steps, // Decrease the hour step
+    })
+    );
 }
-
-
+// console.log(steps)
+useEffect(() => {
+  // Use the updated timeSteps state here
+  console.log(timeSteps);
+}, [timeSteps]);
 const handleNewScheduleClick = () => {
   setNewScheduleModalOpen(true);
 };
@@ -290,12 +272,7 @@ function handleModalClose() {
     setViewportEnd(visibleTimeEnd);
   };
  return (
-  // <div
-  //     className={`timeline-item ${isSelected ? 'selected' : ''}`}
-  //     onClick={() => handleItemClick(item.id)}
-  //   >
-       
-  //   </div>
+   
     <div> 
         <div className="Flist">
         <div className="Fitem"><span id="refresh" title="refresh timeline" onClick={h}> &#x1f5d8; </span></div>
@@ -316,7 +293,7 @@ function handleModalClose() {
               // items={items} //same the above defined items
               items={items.map(item => ({
                 ...item,
-                onClick: () => handleItemClick(item)
+                onClick: () => handleItemClick(item.id, shiftKeyPressed)
               }))}
               onItemClick={handleItemClick}
               defaultTimeStart={addDays(date, -3)}
@@ -341,7 +318,7 @@ function handleModalClose() {
                   <button class="button" id="footB" onClick={handleSelect}>select flight</button>
                   {selectModalOpen && <ModalSmall selectedObjects={selectedObjects} onClose={handleModalClose} />}
                 </div>
-                <div className="button-group" ref={outsideClickRef} style={{ backgroundColor: 'red', height: '50px', width: '70px' }}>
+                <div className="button-group" ref={outsideClickRef}>
               <button
                 className={`button btn-transparent ${selectedItem !== null ? 'green-button' : ''}`}
                 onClick={handleModifyClick}
@@ -359,17 +336,16 @@ function handleModalClose() {
               </button>
             </div>
             {
-  selectedItems && (
-    <div className="selected">
-      {selectedItems.length > 0 && (
-        <div key={selectedItems[selectedItems.length - 1].id}>
-          {selectedItems[selectedItems.length - 1].flight_no} {selectedItems[selectedItems.length - 1].date_filter_from} {selectedItems[selectedItems.length - 1].time_of_departure} {selectedItems[selectedItems.length - 1].airport_of_departure}-{selectedItems[selectedItems.length - 1].airport_destination} {selectedItems[selectedItems.length - 1].date_filter_to} {selectedItems[selectedItems.length - 1].time_of_arrival}
-        </div>
-      )}
-    </div>
-  )
-}
-
+                selectedItems && (
+                  <div className="selected">
+                    {selectedItems.length > 0 && (
+                      <div key={selectedItems[selectedItems.length - 1].id}>
+                        {selectedItems[selectedItems.length - 1].flight_no} {selectedItems[selectedItems.length - 1].date_filter_from} {selectedItems[selectedItems.length - 1].time_of_departure} {selectedItems[selectedItems.length - 1].airport_of_departure}-{selectedItems[selectedItems.length - 1].airport_destination} {selectedItems[selectedItems.length - 1].date_filter_to} {selectedItems[selectedItems.length - 1].time_of_arrival}
+                      </div>
+                    )}
+                  </div>
+                )
+              }
             <div>    
        </div>
       </div>
@@ -377,5 +353,3 @@ function handleModalClose() {
   )
 }
 export default TimelineApp;
-
- 

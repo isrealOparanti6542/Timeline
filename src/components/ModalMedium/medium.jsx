@@ -11,7 +11,7 @@ const ModalMedium = (props) => {
             &#10006;
           </button>
         </div>
-        <div className="new-schedule">
+        <div className="new-schedule-modify">
           <span>Modify</span>
         </div>
         <div className="modals-container">
@@ -89,9 +89,9 @@ const ModalMedium = (props) => {
         </table>
       </div>
     </div>
-        <div className="modal-footer" style={{float: 'right'}}>
+        <div className="modal-footer" style={{float: 'right', marginTop: '10px'}}>
           <button className="button" id="footB" onClick={props.onClose}>
-            Cancell
+            Cancel
           </button>
           <button className="button btn-transparent" id="footB" onClick={props.onClose}>
             Save
