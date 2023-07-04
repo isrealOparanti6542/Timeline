@@ -49,10 +49,12 @@ from the library
     position: relative;
     box-sizing: border-box;
     width: 100px !important;
+    box-shadow: 0px 3px 7px lightgray;
    }
     .react-calendar-timeline .rct-sidebar.rct-sidebar-right {
       /* border-right: 0; */
-      border-left: 1px solid #bbb; 
+      /* border-left: 1px solid #bbb;  */
+   
     }
     .react-calendar-timeline .rct-sidebar .rct-sidebar-row {
       padding: 0 4px;
@@ -191,6 +193,15 @@ from the library
    border-radius: 3px; 
    /* -webkit-appearance: none; */
    outline: none;
+ }
+
+ #viewSelect{
+    outline: none !important;
+ }
+
+ #timezone{
+    outline: none;
+    width: 60px;
  }
  #indicate{
    font-size: 11px;

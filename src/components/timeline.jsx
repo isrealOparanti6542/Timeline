@@ -6,8 +6,7 @@ import ModalFull from './ModalFull/full';
 import ModalMedium from './ModalMedium/medium';
 import ModalSmall from './ModalSmall/small';
 import './ModalFull/full.css';
-// import './ModalMedium/medium.css';
-// import  './ModalSmall/small.css';
+ 
 var date = new Date();
 const groups = [
     { id: 1, title: <div id="groups"><span>ABCDE</span><span>C150</span></div> }, 
@@ -39,7 +38,7 @@ const items = [
     time_of_departure: '12:00',
     time_of_arrival: '15:00',
     start_time:  new Date(date.getFullYear(), date.getMonth(), 2).setHours(6, 0),
-    end_time: new Date(date.getFullYear(), date.getMonth(), 2).setHours(15, 0)
+    end_time: new Date(date.getFullYear(), date.getMonth(), 2).setHours(10, 0)
   },
 
   {
@@ -54,7 +53,7 @@ const items = [
     time_of_departure: '13:00',
     time_of_arrival: '17:00',
     start_time:  new Date(date.getFullYear(), date.getMonth(), 3).setHours(12, 0),
-    end_time: new Date(date.getFullYear(), date.getMonth(), 3).setHours(20, 0)
+    end_time: new Date(date.getFullYear(), date.getMonth(), 3).setHours(16, 0)
   },
   {
     id: 3,
@@ -68,20 +67,11 @@ const items = [
     time_of_departure: '9:00',
     time_of_arrival: '17:00',
     start_time:  new Date(date.getFullYear(), date.getMonth(), 4).setHours(8, 0),
-    end_time: new Date(date.getFullYear(), date.getMonth(), 4).setHours(15, 0)
+    end_time: new Date(date.getFullYear(), date.getMonth(), 4).setHours(12, 0)
   }
       
 ]
- var steps = 6
-const initialTimeSteps = {
-  millisecond: 1,
-  second: 1,
-  minute: 1,
-  hour: steps,
-  day: 1,
-  month: 1,
-  year: 1,
-};
+ var counter = 6
    // moment().add(-75, 'hour') 
 
 function TimelineApp() {
@@ -92,25 +82,102 @@ function TimelineApp() {
   const buttonRef = useRef(null);
 
   const date = new Date()   
-  const addDays = (date, days) => {
-    const result = new Date(date);
-    result.setDate(result.getDate() + days);
-    return result;
-  };
+  // const addDays = (date, days) => {
+  //   const result = new Date(date);
+  //   result.setDate(result.getDate() + days);
+  //   return result;
+  // };
+
+  const [timeSteps, setTimeSteps] = useState({
+    millisecond: 1,
+    second: 1,
+    minites: 1,
+    hour: 6,
+    day: 1,
+    month: 1,
+    year: 1
+  });
   
-   const [viewportStart, setViewportStart] = useState(new Date(date.getFullYear(), date.getMonth(), 2).getTime());
-  const [viewportEnd, setViewportEnd] = useState(new Date(date.getFullYear(), date.getMonth(), 7).getTime());
+  const [viewportStart, setViewportStart] = useState(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
+  const [viewportEnd, setViewportEnd] = useState(new Date(date.getFullYear(), date.getMonth(), 6).getTime());
+  
+  
   const [newScheduleModalOpen, setNewScheduleModalOpen] = useState(false)
   const [modifyModalOpen, setModifyModalOpen] = useState(false)
-  const [selectModalOpen, setselectModalOpen] = useState(false)
-  const [timeSteps, setTimeSteps] = useState(initialTimeSteps);   
+  const [selectModalOpen, setselectModalOpen] = useState(false)   
   const [selectedItem, setSelectedItem] = useState(null);
   const [buttonClicked, setButtonClicked] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
   const [selectedObjects, setSelectedObjects] = useState([]);
   const [shiftKeyPressed, setShiftKeyPressed] = useState(false);  
+   
+    const [selectedTimeStep, setSelectedTimeStep] = useState('30days'); // Default option
+  
+    
+    // Function to handle the dropdown selection
+    const handleTimeStepChange = (event) => {
+      const selectedOption = event.target.value;
+      setSelectedTimeStep(selectedOption);
+      switch (selectedOption) {
+        case '30days':
+          setTimeSteps({ ...timeSteps, hour: 6 });
+          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
+          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 6).getTime());
+          break;
+        case '2weeks':
+          setTimeSteps({ ...timeSteps, hour: 4 });
+          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
+          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4).getTime());
+          break;
+        case '1week':
+          setTimeSteps({ ...timeSteps, hour: 2 });
+          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-1).getTime());
+          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 2, 1).getTime());
+          break;
+        case '3days':
+          setTimeSteps({ ...timeSteps, hour: 1 });
+          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1, -1, 25).getTime());
+          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 2,-3).getTime());
+          break;
+        case '1day':
+          setTimeSteps({ ...timeSteps, minute: 30 });
+          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1, -1, 50).getTime());
+          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 1, 4).getTime());
+          break;
+        default:
+          setTimeSteps({ ...timeSteps, hour: 6 });
+          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
+          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 6).getTime());
+      }
+    };
+    
+//   const [selectedTimeStep, setSelectedTimeStep] = useState('30days'); // Default option
+ 
 
-
+//  const handleTimeStepChange = (event) => {
+//     const selectedOption = event.target.value;
+//     setSelectedTimeStep(selectedOption);
+//     switch (selectedOption) {
+//       case '30days':
+//         setTimeSteps({ ...timeSteps, day: 1 });
+//         break;
+//       case '3weeks':
+//         setTimeSteps({ ...timeSteps, hour: 4 });
+//         break;
+//       case '1week':
+//         setTimeSteps({ ...timeSteps, hour: 2 });
+//         break;
+//       case '3days':
+//         setTimeSteps({ ...timeSteps, hour: 1 });
+//         break;
+//       case '1day':
+//         setTimeSteps({ ...timeSteps, minute: 30 });
+//         break;
+//       default:
+//         setTimeSteps({ ...timeSteps, day: 1 });
+//     }
+//   };
+  
   
 function handleItemClick(itemId, shiftKeyPressed) {
   setSelectedItem(itemId);
@@ -131,14 +198,14 @@ function handleItemClick(itemId, shiftKeyPressed) {
   });
 
   setSelectedItems(prevSelectedObjects => [...prevSelectedObjects, selectedItem])
-  console.log("Shift key pressed:", shiftKeyPressed);
+  // console.log("Shift key pressed:", shiftKeyPressed);
 }
 
 
 const selected = shiftKeyPressed ? selectedObjects : selectedObjects[0];
-  console.log(selectedObjects);
-  console.log(selectedItems);
-  console.log(shiftKeyPressed)
+  // console.log(selectedObjects);
+  // console.log(selectedItems);
+  // console.log(shiftKeyPressed)
    
 ///disable and enable button when item clicked///////
   useEffect(() => {
@@ -154,7 +221,7 @@ const selected = shiftKeyPressed ? selectedObjects : selectedObjects[0];
     };
   }, []);
 
- console.log(selectedItem)
+//  console.log(selectedItem)
  
  function handleItemUnselect() {
     setSelectedItem(null);
@@ -197,10 +264,11 @@ const selected = shiftKeyPressed ? selectedObjects : selectedObjects[0];
   setViewportStart(newStart.getTime());
   setViewportEnd(newEnd.getTime());
 };
-console.log(viewportStart)
+// console.log(viewportStart)
  
   const h = () =>{
-   setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1).getTime())
+  setTimeSteps({ ...timeSteps, hour: 6 });
+   setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime())
    setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 6).getTime())
  }
  const now = () =>{
@@ -208,21 +276,84 @@ console.log(viewportStart)
   let end = new Date(new Date().getFullYear(),new Date().getMonth(), new Date().getDate()).toISOString().split('-')[1].split('')[1]
   setViewportEnd(new Date(date.getFullYear(), date.getMonth(), parseInt(end + 5)).getTime()) 
 }
- 
-const handleZoomOut = () => {
-  const newStart = new Date(viewportStart);
-  const newEnd = new Date(viewportEnd);
-  const diff = (newEnd - newStart) * 0.2; // increase by 20%
-  newStart.setTime(newStart.getTime() + diff / 2);
-  newEnd.setTime(newEnd.getTime() - diff / 2);
-  setViewportStart(newStart.getTime());
-  setViewportEnd(newEnd.getTime());
+var hourStep = timeSteps.hour
+var miniteSteps = 30
 
-  setTimeSteps(prevTimeSteps => ({...prevTimeSteps, hour: steps}));// Increase the hour step
+const handleZoomOut = () => {
+  if(hourStep == 2){
+    hourStep = hourStep - 1
+      
+  }else if(hourStep == 1) {
+    // console.log(miniteSteps)
+    // setTimeSteps({...timeSteps, minites: miniteSteps})  
+
+     console.log(timeSteps)    
+  }
+  else{
+    hourStep = hourStep - 2
+    setTimeSteps({...timeSteps, hour: hourStep})  
+  }
+  
+  
+      const newStart = new Date(viewportStart);
+      const newEnd = new Date(viewportEnd);
+      const diff = (newEnd - newStart) * 0.2; // increase by 20%
+      newStart.setTime(newStart.getTime() + diff / 2);
+      newEnd.setTime(newEnd.getTime() - diff / 2);
+      setViewportStart(newStart.getTime());
+      setViewportEnd(newEnd.getTime());
+
+  // setTimeSteps(prevTimeSteps => ({...prevTimeSteps, hour: steps}));// Increase the hour step
+  // Decrease the hour step (prevTimeSteps.hour === 2 ? 1 : 2)
+   
+ 
+    setTimeSteps(prevTimeSteps => {
+     
+    // console.log(hourStep)
+    if (hourStep === 4) {
+        
+          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
+          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4).getTime());
+        
+      return { ...prevTimeSteps, hour: 4 };
+    } else if (hourStep === 2) {
+      setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-1).getTime());
+      setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 2, 1).getTime());
+      return { ...prevTimeSteps, hour: 2 };
+    }
+      else if (hourStep === 1) {
+        setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1, -1, 25).getTime());
+        setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 2,-3).getTime());
+        return { ...prevTimeSteps, hour: 1 };
+    } 
+    
+     
+      else {
+      setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
+      setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4).getTime());
+      return { ...prevTimeSteps, hour: hourStep };
+      
+    }
+  });
 };
 
 
 const handleZoomIn = () => {
+  if(hourStep == 1){
+    hourStep = hourStep + 1
+      
+  }else if(hourStep == 2) {
+    hourStep = hourStep + 2
+    console.log(miniteSteps)
+    setTimeSteps({...timeSteps, minites: miniteSteps})  
+
+     console.log(timeSteps)    
+  }
+  else{
+    hourStep = hourStep + 2
+    setTimeSteps({...timeSteps, hour: hourStep})  
+  }
+
   const newStart = new Date(viewportStart);
   const newEnd = new Date(viewportEnd);
   const diff = (newEnd - newStart) * 0.2; // decrease by 20%
@@ -230,18 +361,51 @@ const handleZoomIn = () => {
   newEnd.setTime(newEnd.getTime() + diff / 2);
   setViewportStart(newStart.getTime());
   setViewportEnd(newEnd.getTime());
+  setTimeSteps(prevTimeSteps => {
+     
+    // console.log(hourStep)
+    if (hourStep === 4) {
+        
+          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
+          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4).getTime());
+        
+      return { ...prevTimeSteps, hour: 4 };
+    } else if (hourStep === 2) {
+      setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-1).getTime());
+      setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 2, 1).getTime());
+      return { ...prevTimeSteps, hour: 2 };
+    }
+      else if (hourStep === 1) {
+        setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1, -1, 25).getTime());
+        setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 2,-3).getTime());
+        return { ...prevTimeSteps, hour: 1 };
+    } 
+    
+     
+      else {
+      setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
+      setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4).getTime());
+      return { ...prevTimeSteps, hour: hourStep };
+      
+    }
+  });
 
-   setTimeSteps(prevTimeSteps => ({
-      ...prevTimeSteps,
-      hour: steps, // Decrease the hour step
-    })
-    );
+
+
+   
+  // Decrease the hour step
+  // setTimeSteps(prevTimeSteps => ({
+  //   ...prevTimeSteps,
+  //   hour: prevTimeSteps.hour + 2, // Reduce the hour step by 2
+  // }));
+  //  setTimeSteps(prevTimeSteps => ({
+  //     ...prevTimeSteps,
+  //     hour: steps, // Decrease the hour step
+  //   })
+  //   );
 }
 // console.log(steps)
-useEffect(() => {
-  // Use the updated timeSteps state here
-  console.log(timeSteps);
-}, [timeSteps]);
+ 
 const handleNewScheduleClick = () => {
   setNewScheduleModalOpen(true);
 };
@@ -283,7 +447,17 @@ function handleModalClose() {
         <div className="Fitem now"><span className="left arrow" title="pan left" onClick={handleBackwardClick}>&#8592;</span><span id="indicate" title="display today" onClick={now}>NOW</span><span className="arrow right" title="pan right" onClick={handleForwardClick}>&#8594;</span></div>
         <div className="Fitem zoom"><span className="arrow" onClick={handleZoomIn} title="zoom left" > &#x2212; </span><span className="arrow right" onClick={handleZoomOut} title="zoom right">&#x2B; </span></div>
         <div className="Fitem"><button className='btn-transparent' id='publish'>PUBLISH</button></div>
-        <div className="Fitem"><input type="text" placeholder="time-zone"/></div>
+        <div className="Fitem"><input type="text" id="timezone" placeholder="time-zone"/></div>
+        <div className="Fitem">
+
+        <select value={selectedTimeStep}  id="viewSelect" onChange={handleTimeStepChange}>
+          <option value="30days">30 days</option>
+          <option value="2weeks">2 weeks</option>
+          <option value="1week">1 week</option>
+          <option value="3days">3 days</option>
+          <option value="1day">1 day</option>
+        </select>
+      </div>
     </div>
         
        
@@ -296,8 +470,8 @@ function handleModalClose() {
                 onClick: () => handleItemClick(item.id, shiftKeyPressed)
               }))}
               onItemClick={handleItemClick}
-              defaultTimeStart={addDays(date, -3)}
-              defaultTimeEnd={addDays(date, 10)}
+              // defaultTimeStart={addDays(date, -1)}
+              // defaultTimeEnd={addDays(date, 1)}
               visibleTimeStart={viewportStart}
               visibleTimeEnd={viewportEnd}
               onTimeChange={handleTimeChange}
