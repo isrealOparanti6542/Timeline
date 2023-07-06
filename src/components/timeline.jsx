@@ -98,9 +98,9 @@ function TimelineApp() {
     year: 1
   });
   
-  const [viewportStart, setViewportStart] = useState(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
+  const [viewportStart, setViewportStart] = useState(new Date(date.getFullYear(), date.getMonth(), 1).getTime());
   const [viewportEnd, setViewportEnd] = useState(new Date(date.getFullYear(), date.getMonth(), 6).getTime());
-  
+  console.log(timeSteps)
   
   const [newScheduleModalOpen, setNewScheduleModalOpen] = useState(false)
   const [modifyModalOpen, setModifyModalOpen] = useState(false)
@@ -115,6 +115,7 @@ function TimelineApp() {
   
     
     // Function to handle the dropdown selection
+     
     const handleTimeStepChange = (event) => {
       const selectedOption = event.target.value;
       setSelectedTimeStep(selectedOption);
@@ -126,58 +127,35 @@ function TimelineApp() {
           break;
         case '2weeks':
           setTimeSteps({ ...timeSteps, hour: 4 });
-          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
-          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4).getTime());
+          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 2).getTime());
+          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 5).getTime());
           break;
         case '1week':
           setTimeSteps({ ...timeSteps, hour: 2 });
-          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-1).getTime());
-          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 2, 1).getTime());
+          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 3).getTime());
+          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4, 3).getTime());
           break;
         case '3days':
           setTimeSteps({ ...timeSteps, hour: 1 });
-          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1, -1, 25).getTime());
-          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 2,-3).getTime());
+          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 3, 5).getTime());
+          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4, -1).getTime());
           break;
         case '1day':
           setTimeSteps({ ...timeSteps, minute: 30 });
-          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1, -1, 50).getTime());
-          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 1, 4).getTime());
+          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 3, 10).getTime());
+          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 3, 18).getTime());
           break;
         default:
           setTimeSteps({ ...timeSteps, hour: 6 });
           setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
-          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 6).getTime());
+           setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 6).getTime());
       }
     };
-    
+
 //   const [selectedTimeStep, setSelectedTimeStep] = useState('30days'); // Default option
  
 
-//  const handleTimeStepChange = (event) => {
-//     const selectedOption = event.target.value;
-//     setSelectedTimeStep(selectedOption);
-//     switch (selectedOption) {
-//       case '30days':
-//         setTimeSteps({ ...timeSteps, day: 1 });
-//         break;
-//       case '3weeks':
-//         setTimeSteps({ ...timeSteps, hour: 4 });
-//         break;
-//       case '1week':
-//         setTimeSteps({ ...timeSteps, hour: 2 });
-//         break;
-//       case '3days':
-//         setTimeSteps({ ...timeSteps, hour: 1 });
-//         break;
-//       case '1day':
-//         setTimeSteps({ ...timeSteps, minute: 30 });
-//         break;
-//       default:
-//         setTimeSteps({ ...timeSteps, day: 1 });
-//     }
-//   };
-  
+   
   
 function handleItemClick(itemId, shiftKeyPressed) {
   setSelectedItem(itemId);
@@ -249,8 +227,14 @@ const selected = shiftKeyPressed ? selectedObjects : selectedObjects[0];
   const handleBackwardClick = () => {
   const newStart = new Date(viewportStart);
   const newEnd = new Date(viewportEnd);
-  newStart.setDate(newStart.getDate() - 1);
-  newEnd.setDate(newEnd.getDate() - 1);
+  if(timeSteps.hour == 1){
+    newStart.setDate(newStart.getDate() - timeSteps.hour);
+    newEnd.setDate(newEnd.getDate() - timeSteps.hour);  
+  }else{
+    newStart.setDate(newStart.getDate() - timeSteps.hour + 1);
+    newEnd.setDate(newEnd.getDate() - timeSteps.hour + 1);
+  }
+
   console.log(newStart.getTime())
   setViewportStart(newStart.getTime());
   setViewportEnd(newEnd.getTime());
@@ -259,8 +243,16 @@ const selected = shiftKeyPressed ? selectedObjects : selectedObjects[0];
  const handleForwardClick = () => {
   const newStart = new Date(viewportStart);
   const newEnd = new Date(viewportEnd);
-  newStart.setDate(newStart.getDate() + 1);
-  newEnd.setDate(newEnd.getDate() + 1);
+  if(timeSteps.hour == 1){
+    newStart.setDate(newStart.getDate() + timeSteps.hour);
+    newEnd.setDate(newEnd.getDate() + timeSteps.hour);  
+  }else{
+    newStart.setDate(newStart.getDate() + timeSteps.hour - 1);
+    newEnd.setDate(newEnd.getDate() + timeSteps.hour - 1);
+  }
+  
+  console.log(newStart.getTime())
+  console.log(newEnd.getTime())
   setViewportStart(newStart.getTime());
   setViewportEnd(newEnd.getTime());
 };
@@ -274,25 +266,26 @@ const selected = shiftKeyPressed ? selectedObjects : selectedObjects[0];
  const now = () =>{
   setViewportStart(new Date(new Date().getFullYear(),new Date().getMonth(), new Date().getDate()).getTime())
   let end = new Date(new Date().getFullYear(),new Date().getMonth(), new Date().getDate()).toISOString().split('-')[1].split('')[1]
-  setViewportEnd(new Date(date.getFullYear(), date.getMonth(), parseInt(end + 5)).getTime()) 
+  console.log(end)
+  setViewportEnd(new Date(date.getFullYear(), date.getMonth(), parseInt(end)+3).getTime()) 
 }
 var hourStep = timeSteps.hour
 var miniteSteps = 30
 
 const handleZoomOut = () => {
-  if(hourStep == 2){
-    hourStep = hourStep - 1
+  // if(hourStep == 2){
+  //   hourStep = hourStep - 1
       
-  }else if(hourStep == 1) {
-    // console.log(miniteSteps)
-    // setTimeSteps({...timeSteps, minites: miniteSteps})  
+  // }else if(hourStep == 1) {
+  //   // console.log(miniteSteps)
+  //   // setTimeSteps({...timeSteps, minites: miniteSteps})  
 
-     console.log(timeSteps)    
-  }
-  else{
-    hourStep = hourStep - 2
-    setTimeSteps({...timeSteps, hour: hourStep})  
-  }
+  //    console.log(timeSteps)    
+  // }
+  // else{
+  //   hourStep = hourStep - 2
+  //   setTimeSteps({...timeSteps, hour: hourStep})  
+  // }
   
   
       const newStart = new Date(viewportStart);
@@ -303,57 +296,98 @@ const handleZoomOut = () => {
       setViewportStart(newStart.getTime());
       setViewportEnd(newEnd.getTime());
 
-  // setTimeSteps(prevTimeSteps => ({...prevTimeSteps, hour: steps}));// Increase the hour step
-  // Decrease the hour step (prevTimeSteps.hour === 2 ? 1 : 2)
+    
+  setTimeSteps(prevTimeSteps => ({
+    ...prevTimeSteps,
+    hour: checktimestep(prevTimeSteps.hour),
+     
+  }));
+  //  console.log(timeSteps)  
+  const checktimestep = (hour) => {
+    if (hour === 6) {
+      setViewportStart(new Date(date.getFullYear(), date.getMonth(), 2).getTime());
+      setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 5).getTime());
+      console.log('about to be 4')
+
+      return 4;
+    } else if (hour === 4) {
+      setViewportStart(new Date(date.getFullYear(), date.getMonth(), 3).getTime());
+      setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4, 3).getTime());
+      console.log('about to be 2')
+      return 2;
+    } else if (hour === 2) {
+      setViewportStart(new Date(date.getFullYear(), date.getMonth(), 3, 5).getTime());
+      setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4, -1).getTime());
+      return 1;
+    } 
+     else if (hour === 1) {
+        console.log(hour)      
+        // setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1, -1).getTime());
+        // setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 2,-3).getTime());
+         
+        setTimeSteps({ ...timeSteps, minute: 30 });
+        setViewportStart(new Date(date.getFullYear(), date.getMonth(), 3, 10).getTime());
+        setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 3, 18).getTime());
+        
+         console.log(timeSteps)
+      return 1;
+    }
+       
+    
+    return hour;
+  };
+  // const checktimestep1 = (min) => {
+  //   //  if (timeSteps.hour === 1) {
+  //     setTimeSteps({...timeSteps, minites: min})
+      
+      
+  //   // }
+  //   return min
+  // }
    
  
-    setTimeSteps(prevTimeSteps => {
+  
+  
+  
+  
+
+ 
+  //   setTimeSteps(prevTimeSteps => {
      
-    // console.log(hourStep)
-    if (hourStep === 4) {
+  //   // console.log(hourStep)
+  //   if (hourStep === 4) {
         
-          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
-          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4).getTime());
+    //         setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
+    //         setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4).getTime());
         
-      return { ...prevTimeSteps, hour: 4 };
-    } else if (hourStep === 2) {
-      setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-1).getTime());
-      setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 2, 1).getTime());
-      return { ...prevTimeSteps, hour: 2 };
-    }
-      else if (hourStep === 1) {
-        setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1, -1, 25).getTime());
-        setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 2,-3).getTime());
-        return { ...prevTimeSteps, hour: 1 };
-    } 
+  //     return { ...prevTimeSteps, hour: 4 };
+  //   } else if (hourStep === 2) {
+  //     setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-1).getTime());
+  //     setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 2, 1).getTime());
+  //     return { ...prevTimeSteps, hour: 2 };
+  //   }
+  //     else if (hourStep === 1) {
+  //       setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1, -1, 25).getTime());
+  //       setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 2,-3).getTime());
+  //       return { ...prevTimeSteps, hour: 1 };
+  //   } 
     
      
-      else {
-      setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
-      setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4).getTime());
-      return { ...prevTimeSteps, hour: hourStep };
+  //     else {
+  //     setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
+  //     setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4).getTime());
+  //     return { ...prevTimeSteps, hour: hourStep };
       
-    }
-  });
-};
+  //   }
+
+  // });
+}
+
+  
 
 
 const handleZoomIn = () => {
-  if(hourStep == 1){
-    hourStep = hourStep + 1
-      
-  }else if(hourStep == 2) {
-    hourStep = hourStep + 2
-    console.log(miniteSteps)
-    setTimeSteps({...timeSteps, minites: miniteSteps})  
-
-     console.log(timeSteps)    
-  }
-  else{
-    hourStep = hourStep + 2
-    setTimeSteps({...timeSteps, hour: hourStep})  
-  }
-
+  
   const newStart = new Date(viewportStart);
   const newEnd = new Date(viewportEnd);
   const diff = (newEnd - newStart) * 0.2; // decrease by 20%
@@ -361,38 +395,48 @@ const handleZoomIn = () => {
   newEnd.setTime(newEnd.getTime() + diff / 2);
   setViewportStart(newStart.getTime());
   setViewportEnd(newEnd.getTime());
-  setTimeSteps(prevTimeSteps => {
+
+  
+  setTimeSteps(prevTimeSteps => ({
+    ...prevTimeSteps,
+    hour: checktimestep(prevTimeSteps.hour),
      
-    // console.log(hourStep)
-    if (hourStep === 4) {
-        
-          setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
-          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4).getTime());
-        
-      return { ...prevTimeSteps, hour: 4 };
-    } else if (hourStep === 2) {
-      setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-1).getTime());
-      setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 2, 1).getTime());
-      return { ...prevTimeSteps, hour: 2 };
-    }
-      else if (hourStep === 1) {
-        setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1, -1, 25).getTime());
-        setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 2,-3).getTime());
-        return { ...prevTimeSteps, hour: 1 };
-    } 
-    
-     
-      else {
-      setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
-      setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4).getTime());
-      return { ...prevTimeSteps, hour: hourStep };
+  }));
+  //  console.log(timeSteps)  
+  const checktimestep = (hour) => {
+    if (timeSteps.minute === 30) {
+      setViewportStart(new Date(date.getFullYear(), date.getMonth(), 3, 5).getTime());
+          setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4, -1).getTime());
+      // setViewportStart(new Date(date.getFullYear(), date.getMonth(), 2).getTime());
+      // setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 5).getTime());
+      console.log('about to be 4')
+      setTimeSteps({ ...timeSteps, minute: 1 }); 
       
+    } else if (hour === 1) {
+      setViewportStart(new Date(date.getFullYear(), date.getMonth(), 3).getTime());
+      setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4, 3).getTime());
+      // setViewportStart(new Date(date.getFullYear(), date.getMonth(), 3).getTime());
+      // setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 4, 3).getTime());
+      console.log('about to be 2')
+      return 2;
+    } else if (hour === 2) {
+      setViewportStart(new Date(date.getFullYear(), date.getMonth(), 2).getTime());
+      setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 5).getTime());
+      return 4;
+    } 
+     else if (hour === 4) {
+          
+          
+      setViewportStart(new Date(date.getFullYear(), date.getMonth(), 1,-2).getTime());
+      setViewportEnd(new Date(date.getFullYear(), date.getMonth(), 6).getTime());
+        
+       
+      return 6;
     }
-  });
-
-
-
-   
+       
+    
+    return hour;
+  };  
   // Decrease the hour step
   // setTimeSteps(prevTimeSteps => ({
   //   ...prevTimeSteps,
