@@ -1,0 +1,437 @@
+<?php
+/* 
+Template Name: Home Page
+ */
+
+$about = get_field('about');
+
+get_header();
+?>
+
+<!-- HOME IMAGE FULLSCREEN WEB-->
+<?php while ( have_posts() ) : the_post(); ?>
+
+<section class="bg-full-container d-flex detail-artist web home">
+
+	<div class="resumen col-12 text-right te	xt-md-right h-50 d-flex b-right b-bottom b-left">
+		<div id="carousel-example" class="carousel slide" data-interval="false">
+			<div id="carouselArtists" class="carousel slide content" data-interval="false">
+				<div class="carousel-inner">
+					<?php $loop = new WP_Query( array( 'post_type' => array('community', 'exhibitions', 'projects', 'artists'), 'orderby' => 'meta_value_num', 'order' => 'DESC', 'category_name' => 'home' ) );?>
+					<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
+						<div class="carousel-item">
+							<a class="resumen-content-modal" data-toggle="modal" data-target=".bs-example-modal-lg">
+								<?php if( get_post_type() == 'community' ) { 
+									$image_home = get_field('image_home');
+									$title_community = get_field('title_community');
+									$subtitle_community = get_field('subtitle_community');
+									$additional_info_community = get_field('additional_info_community');
+									$description_community = get_field('description_community');
+									?>
+									<a href="<?php the_permalink() ?>">
+										<img src="<?php echo $image_home['url']; ?>" alt="<?php echo $image_home['alt']; ?>">
+										<p><?php echo $title_community; ?> | <?php echo $subtitle_community?> </br> <?php echo $additional_info_community; ?> </p>
+									</a>
+								<?php } ?>
+								<?php if( get_post_type() == 'exhibitions' ) { 
+									$title_exhibitions = get_field('title_exhibitions');
+									$subtitle_exhibitions = get_field('subtitle_exhibitions');
+									$additional_info_exhibitions = get_field('additional_info_exhibitions');
+									$image_home = get_field('image_home');
+									?>
+									<a href="<?php the_permalink() ?>">
+										<img src="<?php echo $image_home['url']; ?>" alt="<?php echo $image_home['alt']; ?>">
+										<p><?php echo $title_exhibitions; ?> | <?php echo $subtitle_exhibitions?> </br> <?php echo $additional_info_exhibitions; ?> </p>
+									</a>
+								<?php } ?>
+								<?php if( get_post_type() == 'projects' ) { 
+									$title_projects = get_field('title_projects');
+									$subtitle_projects = get_field('subtitle_projects');
+									$additional_info_projects = get_field('additional_info_projects');
+									$image_home = get_field('image_home');
+									?>
+									<a href="<?php the_permalink() ?>">
+										<img src="<?php echo $image_home['url']; ?>" alt="<?php echo $image_home['alt']; ?>">
+										<p><?php echo $title_projects; ?> | <?php echo $subtitle_projects?> </br> <?php echo $additional_info_projects; ?> </p>
+									</a>
+								<?php } ?>
+								<?php if( get_post_type() == 'artists' ) { 
+									$title_artist = get_field('title_artist');
+									$year_artist_text = get_field('year_artist_text');
+									$web_artist = get_field('web_artist');
+									$image_home = get_field('image_home');
+									?>
+									<a href="<?php the_permalink() ?>">
+										<img src="<?php echo $image_home['url']; ?>" alt="<?php echo $image_home['alt']; ?>">
+										<p><?php echo $title_artist; ?> | <?php echo $year_artist_text?> </br> <?php echo $web_artist; ?> </p>
+									</a>
+								<?php } ?>
+							</a>
+						</div>
+					<?php endwhile; ?>
+				</div> 
+
+				<div class="next b-top w-100 d-flex">
+					<div class="col-1 text-left">
+						<a class="carousel-control-prev" href="#carouselArtists" role="button" data-slide="prev">
+							<span aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
+							<span class="sr-only">Preview</span>
+						</a>
+					</div>
+					<div class="col-10 text-center">
+						
+					</div>
+					<div class="col-1 text-right">
+						<a class="carousel-control-next" href="#carouselArtists" role="button" data-slide="next">
+							<span aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<!-- HOME IMAGE FULLSCREEN MOBILE -->
+<section class="bg-full-container detail-artist mobile home" style="display: none;">
+    <div class="resumen column-artists col-12 text-left b-right b-right h-100">
+        <div class="flex-container space-between d-flex">
+
+            <div id="carousel-example-mob" class="carousel slide" data-interval="false">
+                <div id="carouselArtists-mob" class="carousel slide content p-3" data-interval="false">
+                    
+
+					<div class="carousel-inner">
+						<?php $loop = new WP_Query( array( 'post_type' => array('community', 'exhibitions', 'projects', 'artists'), 'orderby' => 'meta_value_num', 'order' => 'DESC', 'category_name' => 'home' ) );?>
+						
+						<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
+							<div class="carousel-item">
+								<a class="resumen-content-modal" data-toggle="modal" data-target=".bs-example-modal-lg">
+									<?php if( get_post_type() == 'community' ) { 
+										$image_home = get_field('image_home');
+										$title_community = get_field('title_community');
+										$subtitle_community = get_field('subtitle_community');
+										$additional_info_community = get_field('additional_info_community');
+										$description_community = get_field('description_community');
+										?>
+										<a href="<?php the_permalink() ?>">
+											<img src="<?php echo $image_home['url']; ?>" alt="<?php echo $image_home['alt']; ?>">
+											<p><?php echo $title_community; ?> | <?php echo $subtitle_community?> </br> <?php echo $additional_info_community; ?> </p>
+										</a>
+									<?php } ?>
+									<?php if( get_post_type() == 'exhibitions' ) { 
+										$title_exhibitions = get_field('title_exhibitions');
+										$subtitle_exhibitions = get_field('subtitle_exhibitions');
+										$additional_info_exhibitions = get_field('additional_info_exhibitions');
+										$image_home = get_field('image_home');
+										?>
+										<a href="<?php the_permalink() ?>">
+											<img src="<?php echo $image_home['url']; ?>" alt="<?php echo $image_home['alt']; ?>">
+											<p><?php echo $title_exhibitions; ?> | <?php echo $subtitle_exhibitions?> </br> <?php echo $additional_info_exhibitions; ?> </p>
+										</a>
+									<?php } ?>
+									<?php if( get_post_type() == 'projects' ) { 
+										$title_projects = get_field('title_projects');
+										$subtitle_projects = get_field('subtitle_projects');
+										$additional_info_projects = get_field('additional_info_projects');
+										$image_home = get_field('image_home');
+										?>
+										<a href="<?php the_permalink() ?>">
+											<img src="<?php echo $image_home['url']; ?>" alt="<?php echo $image_home['alt']; ?>">
+											<p><?php echo $title_projects; ?> | <?php echo $subtitle_projects?> </br> <?php echo $additional_info_projects; ?> </p>
+										</a>
+									<?php } ?>
+									<?php if( get_post_type() == 'artists' ) { 
+										$title_artist = get_field('title_artist');
+										$year_artist_text = get_field('year_artist_text');
+										$web_artist = get_field('web_artist');
+										$image_home = get_field('image_home');
+										?>
+										<a href="<?php the_permalink() ?>">
+											<img src="<?php echo $image_home['url']; ?>" alt="<?php echo $image_home['alt']; ?>">
+											<p><?php echo $title_artist; ?> | <?php echo $year_artist_text?> </br> <?php echo $web_artist; ?> </p>
+										</a>
+									<?php } ?>
+								</a>
+							</div>
+						<?php endwhile; ?>
+					</div> 
+                </div>
+
+                <div class="next b-top w-100 d-flex">
+                    <div class="col-1 text-left">
+                        <a class="carousel-control-prev" href="#carouselArtists-mob" role="button" data-slide="prev">
+                            <span aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
+                            <span class="sr-only">Preview</span>
+                        </a>
+                    </div>
+                    <div class="col-10 text-center">
+                    </div>
+                    <div class="col-1 text-right">
+                        <a class="carousel-control-next" href="#carouselArtists-mob" role="button" data-slide="next">
+                            <span aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php endwhile; // End of the loop.?>
+<?php
+get_footer();
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="bg-full-container d-flex detail-about">
+    <div class="column-artists col-md-6 text-left b-right b-left b-bottom h-100 about">
+            <div class="flex-container space-between d-flex about">
+                <div class="title-section b-bottom pl-3">
+                    <a href="<?php echo esc_url( home_url( '/about' ) ); ?>">ABOUT</a>
+                </div>
+                <div class="p-3 description-about d-flex">
+                    <p class="description"><?php echo $about; ?></p>
+                    <p class="description pt-5">2b is supported by:</p>
+                    <div class="p-3 imagen_about">
+                            <?php if( get_field('about_img_1') ): ?>
+                                <div class="col-md-4">
+                                    <img src="<?php echo $about_img_1['url']; ?>" alt="<?php echo $about_img_1['alt']; ?>">  
+                                </div> 
+                            <?php endif; ?>
+                            <?php if( get_field('about_img_2') ): ?>
+                                <div class="col-md-4">
+                                    <img src="<?php echo $about_img_2['url']; ?>" alt="<?php echo $about_img_2['alt']; ?>">  
+                                </div> 
+                            <?php endif; ?>
+                            <?php if( get_field('about_img_3') ): ?>
+                                <div class="col-md-4">
+                                    <img src="<?php echo $about_img_3['url']; ?>" alt="<?php echo $about_img_3['alt']; ?>">  
+                                </div> 
+                            <?php endif; ?>
+                            <?php if( get_field('about_img_4') ): ?>
+                                <div class="col-md-4">
+                                    <img src="<?php echo $about_img_4['url']; ?>" alt="<?php echo $about_img_4['alt']; ?>">  
+                                </div> 
+                            <?php endif; ?>
+                            <?php if( get_field('about_img_5') ): ?>
+                                <div class="col-md-4">
+                                    <img src="<?php echo $about_img_5['url']; ?>" alt="<?php echo $about_img_5['alt']; ?>">  
+                                </div> 
+                            <?php endif; ?>
+                            <?php if( get_field('about_img_6') ): ?>
+                                <div class="col-md-4">
+                                    <img src="<?php echo $about_img_6['url']; ?>" alt="<?php echo $about_img_6['alt']; ?>">  
+                                </div> 
+                            <?php endif; ?>
+                            <?php if( get_field('about_img_7') ): ?>
+                                <div class="col-md-4">
+                                    <img src="<?php echo $about_img_7['url']; ?>" alt="<?php echo $about_img_7['alt']; ?>">  
+                                </div> 
+                            <?php endif; ?>
+                            <?php if( get_field('about_img_8') ): ?>
+                                <div class="col-md-4">
+                                    <img src="<?php echo $about_img_8['url']; ?>" alt="<?php echo $about_img_8['alt']; ?>">  
+                                </div> 
+                            <?php endif; ?>
+                            <?php if( get_field('about_img_9') ): ?>
+                                <div class="col-md-4">
+                                    <img src="<?php echo $about_img_9['url']; ?>" alt="<?php echo $about_img_9['alt']; ?>">  
+                                </div> 
+                            <?php endif; ?>
+                        
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="column-artists col-md-6 text-left h-100 contact">
+        <div class="flex-container space-between d-flex b-right">
+            <div class="b-bottom pl-3">
+				<p>
+					Explore our mission, programs, teams, and more.<br>If you have any question do not hesitate to <a href="#footer"><span class="a-green">contact us</span></a>
+				</p>
+            </div>
+            <div class="description-about d-flex b-bottom p-3">
+<!--                 <p class="description w-100 pb-5"><?php echo $contact; ?></p>
+                <?php echo do_shortcode('[contact-form-7 id="187" title="Formulario de contacto 1"]')?>
+                <p class="description w-100 pt-5"><?php echo $contact_text; ?></p> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="bg-full-container d-flex page-community">
+    <div class="column-artists col-md-6 text-left b-right b-left h-100">
+            <div class="flex-container space-between d-flex">
+                <div class="title-section b-bottom pl-3">
+                    <a href="<?php echo esc_url( home_url( '/community-list' ) ); ?>">COMMUNITY</a>
+                    <span class="other-type" style="display: none;"><a href="<?php echo esc_url( home_url( '/community-list' ) ); ?>">COMMUNITY</a></span>
+                </div>
+
+                <?php $loop = new WP_Query( array( 'post_type' => 'community', 'orderby' => 'post_id', 'order' => 'DESC', 'cat' => -26 ) );?>
+                <?php while ( $loop->have_posts() ) : $loop->the_post();?> 
+                    <div class="list-artists b-bottom list-<?php the_ID(); ?>">
+                        <a class="artists" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+                    </div>
+                <?php endwhile; ?>
+                
+            </div>
+    </div>
+    <div class="resumen col-6 text-right text-md-right h-100 d-flex right b-right b-bottom">
+        <div class="content p-3">
+            <?php $loop = new WP_Query( array( 'post_type' => 'community', 'orderby' => 'post_id', 'order' => 'DESC', 'cat' => -26 ) );?>
+                <?php while ( $loop->have_posts() ) : $loop->the_post(); 
+                $image_community_1 = get_field('image_community_1');
+                $image_community_1_url = $image_community_1['url'];
+            ?>
+            <img class="img-artists img-<?php the_ID(); ?>" style="display: none;" src="<?php echo esc_url( $image_community_1_url); ?>" alt="">
+            <?php endwhile; ?>
+        </div>
+    </div>
+</section>
+
+class="page-artists"
+<div class="column-artists col-md-6 text-left b-right b-left h-100">
+	<div class="flex-container space-between d-flex">
+		<div class="title-section b-bottom pl-3">
+			<a href="<?php echo esc_url( home_url( '/artists' ) ); ?>">ARTISTS</a>
+			<span class="other-type" style="display: none;"><a href="<?php echo esc_url( home_url( '/artists' ) ); ?>">ARTISTS</a></span>
+		</div>
+
+		<?php $loop = new WP_Query( array( 'post_type' => 'artists', 'orderby' => 'title', 'order' => 'ASC', 'posts_per_page' => -1, ) );?>
+		<?php while ( $loop->have_posts() ) : $loop->the_post();?>
+			<div class="list-artists b-bottom list-<?php the_ID(); ?>">
+				<a class="artists" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+			</div>
+		<?php endwhile; ?>
+	</div>
+</di<div class="resumen col-6 text-right text-md-right h-100 d-flex right b-right b-bottom">
+<div class="content p-3">
+	<?php $loop = new WP_Query( array( 'post_type' => 'artists', 'orderby' => 'title', 'order' => 'ASC', 'posts_per_page' => -1, ) );?>
+	<?php while ( $loop->have_posts() ) : $loop->the_post(); 
+		$image_artist_1 = get_field('image_artist_1');
+		$image_artist_1_url = $image_artist_1['url'];
+	?>
+	<img class="img-artists img-<?php the_ID(); ?>" style="display: none;" src="<?php echo esc_url( $image_artist_1_url); ?>" alt="<?php the_title(); ?>">
+	<?php endwhile; ?>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+/**
+ * The base configuration for WordPress
+ *
+ * The wp-config.php creation script uses this file during the
+ * installation. You don't have to use the web site, you can
+ * copy this file to "wp-config.php" and fill in the values.
+ *
+ * This file contains the following configurations:
+ *
+ * * MySQL settings
+ * * Secret keys
+ * * Database table prefix
+ * * ABSPATH
+ *
+ * @link https://wordpress.org/support/article/editing-wp-config-php/
+ *
+ * @package WordPress
+ */
+
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'bnonprof_bd_wp' );
+
+/** MySQL database username */
+define( 'DB_USER', 'bnonprof_user_bd' );
+
+/** MySQL database password */
+define( 'DB_PASSWORD', 'hhp({N6CuO(F' );
+
+/** MySQL hostname */
+define( 'DB_HOST', 'localhost' );
+
+/** Database Charset to use in creating database tables. */
+define( 'DB_CHARSET', 'utf8mb4' );
+
+/** The Database Collate type. Don't change this if in doubt. */
+define( 'DB_COLLATE', '' );
+
+/**#@+
+ * Authentication Unique Keys and Salts.
+ *
+ * Change these to different unique phrases!
+ * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
+ * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
+ *
+ * @since 2.6.0
+ */
+define( 'AUTH_KEY',         '_Q.Brm!Lq[oCCcXSxF^g%Q{8Hi  Ea& )CYRDgBv[&Psg2M-Q)OPPVzYwu_tj2*}' );
+define( 'SECURE_AUTH_KEY',  'ukc8eWo}u[i[v7nR8PPZaqu }Ns:b*~O4&3(])xj5_0sk1n[{HocO$bop|I- Gh&' );
+define( 'LOGGED_IN_KEY',    'R@8.<|/*M.Ru?@Be;kE6LFCV5t};:aUZ,b8lsZt4!C(yS;C 3bI/66Y^J v,YxXo' );
+define( 'NONCE_KEY',        'm)AQg|%O|%qszHEmbC`vag[d%I<cT8/$AVxB2DCanY&;2X`w8iBAPg^kyIbjv6]Z' );
+define( 'AUTH_SALT',        'EZK6^y!fg9th=ZIZ|LR3hE|a=DX&0]`YPGe{Ltj4H/2DsZ`&5K8#,A;MvKo)X7[I' );
+define( 'SECURE_AUTH_SALT', 'sDzxt$7L_a@1`yfn#JG;=)Y)SqN7cZJ`?_a%A}[Cu`^qLZ{{|A-j!j>VQ1OaVMrR' );
+define( 'LOGGED_IN_SALT',   '9S`QRHW 450mX|#(.b&~/rW8M%KGa8HB8YWLRDWx,|:jz~k-a#0WYuv#`;MO.$f#' );
+define( 'NONCE_SALT',       '-`|JFw=N/f;vrt-Y)|rbT$A4W+_ZU.p2}Uy_q(l;g!`f+T&@NMyj?CVwf;clJyc#' );
+
+/**#@-*/
+
+/**
+ * WordPress Database Table prefix.
+ *
+ * You can have multiple installations in one database if you give each
+ * a unique prefix. Only numbers, letters, and underscores please!
+ */
+$table_prefix = 'wp_';
+
+/**
+ * For developers: WordPress debugging mode.
+ *
+ * Change this to true to enable the display of notices during development.
+ * It is strongly recommended that plugin and theme developers use WP_DEBUG
+ * in their development environments.
+ *
+ * For information on other constants that can be used for debugging,
+ * visit the documentation.
+ *
+ * @link https://wordpress.org/support/article/debugging-in-wordpress/
+ */
+define( 'WP_DEBUG', false );
+
+/* That's all, stop editing! Happy publishing. */
+
+/** Absolute path to the WordPress directory. */
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', __DIR__ . '/' );
+}
+
+/** Sets up WordPress vars and included files. */
+require_once ABSPATH . 'wp-settings.php';

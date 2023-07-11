@@ -1,0 +1,42 @@
+table {
+    margin-top: 20px;
+    margin-bottom: 20px !important;
+    border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+    border-collapse: collapse;
+  }
+  
+  table th,
+  table td {
+    padding: 5px;
+    
+    /* text-transform: uppercase !important; */
+  }
+  
+  table th {
+    font-size: 0.7rem;
+    font-weight: 100;
+    font-family: tahoma;
+    text-transform: uppercase !important;
+    background-color: rgb(233, 231, 231);
+    border-radius: 2px;
+  }
+  
+  table td input[type="text"] {
+    width: 60px !important;
+  }
+  
+  
+  
+  table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  table tfoot tr {
+    border-top: 2px solid deepgray;
+  }
+  
+  table tfoot td {
+    /* font-weight: bold; */
+  }
+  
